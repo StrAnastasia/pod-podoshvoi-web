@@ -1,9 +1,8 @@
-import React from 'react'
+import Band from "../band/Band";
 
 export default function Homepage() {
-    return (
-        <div>
 
-        </div>
+        return (
+            <Band />
     )
 }

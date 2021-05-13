@@ -1,0 +1,5 @@
+const GET_BAND='GET_BAND'
+const GET_NEWS='GET_NEWS'
+const GET_LK='GET_LK'
+const GET_GIGS='GET_GIGS'
+export {GET_BAND,GET_NEWS,GET_GIGS,GET_LK}
