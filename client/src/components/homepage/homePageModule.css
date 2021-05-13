@@ -1,0 +1,33 @@
+.homePage-post{
+  width: 1200px;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 50px;
+  border-width: 2px;
+  border-color: rgb(48, 48, 48);
+  margin-top: -100px;
+}
+
+
+.homePage-post-img{
+  float: left !important;
+  width: 400px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+.homePage-post-title{
+  margin-top: -5;
+  color: rgb(206, 198, 79);
+}
+
+.homePage-post-text{
+  font-size: 120%;
+  margin-top: 10px;
+  color: rgb(190, 190, 190);
+}
+
+.homePage-img{
+  width: 100%;
+}
+
