@@ -4,17 +4,18 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './components/header/header';
-import Map from "./components/Map/Map";
+import Homepage from "./components/homepage/Homepage";
 
 function App() {
   return (
     <Router>
-    <Header />
-    <Switch>
-          <Route exact path="/homepage">
-            <Map />
-          </Route>
-        </Switch>
+
+      <Header />
+      <Switch>
+        <Route path='/homepage'>
+          <Homepage />
+        </Route>
+      </Switch>
     </ Router>
   );
 }
