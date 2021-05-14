@@ -27,7 +27,6 @@ function App() {
       <Header />
       <Switch>
         <Route path='/homepage'>
-          <Map />
           <Homepage />
         </Route>
       </Switch>
