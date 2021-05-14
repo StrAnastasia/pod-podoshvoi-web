@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
+import Map from "./components/Map/Map";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Switch>
         <Route path='/homepage'>
+          <Map />
           <Homepage />
         </Route>
       </Switch>
