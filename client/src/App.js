@@ -1,3 +1,8 @@
+
+
+import { useEffect, useState } from "react";
+
+// import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +12,16 @@ import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
 
+
+
+
+
+
+
 function App() {
+
+  
+
   return (
     <Router>
       <Header />
