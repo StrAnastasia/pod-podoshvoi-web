@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Map() {
     return (
+        // <iframe src="https://www.google.com/maps/d/embed?mid=1NU5MOEVWU6iFzSSw5NJ3VDRIT75G1bay" width="640" height="480"></iframe>
         <iframe
         style={{
             border:0
