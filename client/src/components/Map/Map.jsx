@@ -1,4 +1,5 @@
 import React from 'react'
+import { Loader } from "@googlemaps/js-api-loader"
 
 export default function Map() {
     return (
