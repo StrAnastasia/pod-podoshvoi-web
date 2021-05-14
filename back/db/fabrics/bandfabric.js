@@ -112,8 +112,9 @@ async function bandFabric() {
       reviews: []
     }
   ]
-  console.log('bands here');
-  await Band.insertMany(bands)
+  console.log(Band);
+  const bandso = await Band.find()
+  console.log(bandso);
   // return Promise.all(bands.map((data) => Band.create(data)))
 }
 
