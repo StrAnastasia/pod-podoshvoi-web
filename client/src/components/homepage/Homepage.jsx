@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import Band from "../band/Band";
-
-export default function Homepage() {
-
-        return (
-            <Band />
-=======
 import React from 'react'
-import imgHomePage from '/home/egor/elbrus/finalProject/pod-podoshvoi-web/client/src/components/homepage/pexels-photo-1105666.jpeg'
-import imgPost from '/home/egor/elbrus/finalProject/pod-podoshvoi-web/client/src/components/homepage/961f67b4966a6464ff78bc81d415086b.jpg'
-import './homePageModule.css'
+import imgHomePage from './pexels-photo-1105666.jpeg'
+import imgPost from './961f67b4966a6464ff78bc81d415086b.jpg'
+import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Parallax } from 'react-scroll-parallax';
 
 
 export default function Homepage() {
@@ -23,7 +14,8 @@ export default function Homepage() {
 
 
     return (
-        <div className="d-flex  align-items-center flex-column" style={{ position: 'relative' }}>
+
+        <div className="d-flex  align-items-center flex-column" >
 
 
 
@@ -31,7 +23,7 @@ export default function Homepage() {
 
 
 
-            {/* <img alt='main'className='homePage-img' src={imgHomePage}></img> */}
+            
 
 
 
@@ -85,6 +77,5 @@ export default function Homepage() {
         </div>
 
 
->>>>>>> 8972848d78e0ad722f9a2320cb6d7f9ad1874984
     )
 }

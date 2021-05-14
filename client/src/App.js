@@ -9,7 +9,6 @@ import Homepage from "./components/homepage/Homepage";
 function App() {
   return (
     <Router>
-
       <Header />
       <Switch>
         <Route path='/homepage'>
