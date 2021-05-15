@@ -1,5 +1,8 @@
 import zIndex from '@material-ui/core/styles/zIndex';
 import React from 'react';
+import './headerStyle.scss'
+import hederLogo from '/home/egor/elbrus/finalProject/pod-podoshvoi-web/client/src/components/homepage/pngegg.png'
+
 
 import { Link } from "react-router-dom";
 
@@ -9,7 +12,9 @@ import { Link } from "react-router-dom";
 export default function Header() {
 
     return (
-        <div style={{position: 'sticky', top: '0', zIndex: '1'}}>
+
+        <>
+            {/* <div style={{position: 'sticky', top: '0', zIndex: '1'}}>
             <nav className="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                    
@@ -37,6 +42,29 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
-        </div >
+        </div > */}
+
+            <div className='backGroung' style={{ position: 'sticky', top: '0', zIndex: '1' }}>
+
+                <div className='logoContainer'>
+
+                    <img className='logo' src={hederLogo}/>
+                   
+                    <Link style={{marginLeft:10, fontSize: 25}} className="textHeader" aria-current="page" to='/homepage'>под подошвой</Link>
+                    
+                </div>
+
+                <div>
+
+                    <Link style={{ marginRight: 20 }} className="textHeader" aria-current="page" to='/homepage'>новости</Link>
+                    <Link className="textHeader" aria-current="page" to='/homepage'>концерты</Link>
+                </div>
+                <div style={{marginRight: 30}}>
+                    <Link className="textHeader" style={{ marginRight: 20 }} aria-current="page" to='/singin'>вход</Link>
+                    <Link className="textHeader" aria-current="page" to='/singup'>регистрация</Link>
+                </div>
+            </div>
+
+        </>
     );
 }
