@@ -133,7 +133,7 @@ const database = {
       bands: ["Arziani"],
     }
   ],
-  gigs = [
+  gigs: [
     {
       name: 'Гулять!',
       bands: ['Шейм', 'ЛОГОС', 'Red Hize'],
@@ -183,7 +183,7 @@ const database = {
       date: '2021-03-28, 19:00'
     }
   ],
-  places = [
+  places: [
     {
       name: 'Бункер 47',
       adress: 'Москва, Ленинградский пр-т., 47/3',
@@ -234,7 +234,7 @@ const database = {
       afisha: null
     },
   ],
-  news = [
+  news: [
     {
       title: 'редкое фото',
       text: 'Вадим записывает новую песню',
@@ -254,7 +254,7 @@ const database = {
     {
       title: 'Arziani выпустил новый трек!',
       text: "Если вы ещё не видели, то Тоша выпустил вчера сингл – и это из разряда тех песен, которые хочется заслушать до дыр.\nВсе мы обречены, но выбор каждого – на что именно!\nArziani – Обречён",
-      image: "https://vk.com/mirolubivoemore?z=photo-172025708_457240250%2Falbum-172025708_00%2Frev",
+      image: "https://sun9-70.userapi.com/impg/YOuFYZ9bNRgXJ4U60m3WYOR1HpIUuTgKlTjVZw/EpIAzguEb-w.jpg?size=1334x1334&quality=96&sign=4af078994bb49d151d8ac1a82f458fe6&type=album",
       links: null, //ссылки на сторонние сайты
       tags: ['ноывый трек', "арзиани"]
 

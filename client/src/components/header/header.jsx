@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import {fetchAllNews} from '../../redux/AC/ac'
+import { useDispatch } from "react-redux";
 
 export default function Header() {
 
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
 
+
+  const dispatch = useDispatch()
+
+  const allnewsHandler = async () => {
+      dispatch(fetchAllNews()); //-- thunk 
+
+  }
+
+
+
   useEffect(() => {
-    axios.get('/auth/current-session').then(({data}) => {
+    axios.get('/auth/current-session').then(({ data }) => {
       setAuth(data);
     })
   }, [])
 
 
   return (
-    <div style={{position: 'sticky', top: '0',['z-index']: '1'}}>
+    <div style={{ position: 'sticky', top: '0', ['z-index']: '1' }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -38,6 +50,7 @@ export default function Header() {
                   className="nav-link active"
                   aria-current="page"
                   to="/homepage"
+                  onClick={allnewsHandler}
                 >
                   Home
                 </Link>
@@ -63,23 +76,23 @@ export default function Header() {
                   </Link>
                 </>
               ) : (
-                <>
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href="http://localhost:8080/auth/login" 
-                  >
-                    Sing in
+                  <>
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="http://localhost:8080/auth/login"
+                    >
+                      Sing in
                   </a>
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href="http://localhost:8080/auth/login"
-                  >
-                    Sing up
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="http://localhost:8080/auth/login"
+                    >
+                      Sing up
                   </a>
-                </>
-              )}
+                  </>
+                )}
             </div>
           </div>
         </div>

@@ -112,7 +112,7 @@ async function bandFabric() {
       reviews: []
     }
   ]
-  console.log(Band);
+  // console.log(Band);
   const bandso = await Band.find()
   console.log(bandso);
   // return Promise.all(bands.map((data) => Band.create(data)))
