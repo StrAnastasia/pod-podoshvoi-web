@@ -10,13 +10,8 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
-<<<<<<< HEAD
-    "dotenv": "^9.0.2",
-    "mongoose": "^5.12.9",
-=======
     "axios": "^0.21.1",
     "http-proxy-middleware": "^2.0.0",
->>>>>>> 3edd155d09ac6a48eac4283176c3628f6670b85a
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

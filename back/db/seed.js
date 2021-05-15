@@ -9,14 +9,14 @@ require('dotenv').config()
 
 
 async function main() {
-  await connect(process.env.DB_LOCAL_URL, {
+  await connect(process.env.DB_ATLAS_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
   });
 
-  console.log(process.env.DB_LOCAL_URL);
+  console.log(process.env.DB_ATLAS_URL);
 
   await bandFabric()
   // await genreFabric()
