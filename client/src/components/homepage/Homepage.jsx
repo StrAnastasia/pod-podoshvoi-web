@@ -1,7 +1,7 @@
 import React from 'react'
-import imgPost1 from './concert3.jpg'
-import imgPost2 from './concert.jpg'
-import imgPost3 from './concert2.jpg'
+import imgPost1 from '../../images/concert3.jpg'
+import imgPost2 from '../../images/concert.jpg'
+import imgPost3 from '../../images/concert2.jpg'
 import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -13,7 +13,7 @@ export default function Homepage() {
 
     const [offsetYImg, setOffsetYImg] = useState(1)
 
-    const [offsetYHeader, setOffsetYHeader] = useState(1)
+    const [offsetYHeader, setOffsetYHeader] = useState(0.8)
 
 
     const handleScrollPost = () => {
@@ -26,7 +26,7 @@ export default function Homepage() {
     }
 
     const handleScrollHeader = () => {
-        const opas = 1 - window.pageYOffset * 0.010
+        const opas = offsetYHeader- window.pageYOffset * 0.010
         setOffsetYHeader(opas);
     }
 
@@ -54,9 +54,8 @@ export default function Homepage() {
         <div className='homePage' >
             <div className='newBacGroung' style={{ opacity: offsetYImg }} />
 
-            <div className='bunner' style={{ opacity: offsetYHeader }}>
-                
-                под подошвой
+            <div className='banner' style={{ opacity: offsetYHeader }}>
+                ПОД ПОДОШВОЙ
             </div>
 
 
@@ -97,7 +96,7 @@ export default function Homepage() {
 
             <div className='homePage-post' >
 
-                <img alt='post' src={''} className="homePage-post-img" />
+                <img alt='post' src={imgPost1} className="homePage-post-img" />
                 <div className="d-flex  align-items-center flex-column">
                     <h1 className='homePage-post-title'>Полет шмеля</h1>
 
