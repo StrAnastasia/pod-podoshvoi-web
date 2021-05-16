@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import './headerStyle.scss'
-import hederLogo from '../homepage/pngegg.png'
+import hederLogo from '../../images/pngegg.png'
 
 
 import { Link } from "react-router-dom";
@@ -60,7 +60,7 @@ export default function Header() {
               ) : (
                 <>
                  <a className="textHeader" style={{ marginRight: 20 }} aria-current="page" href='http://localhost:8080/auth/login'>вход</a>
-<a className="textHeader" aria-current="page" href='http://localhost:8080/auth/login'>регистрация</a>
+                 <a className="textHeader" aria-current="page" href='http://localhost:8080/auth/login'>регистрация</a>
                 </>
               )}
 

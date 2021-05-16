@@ -13,7 +13,7 @@
 }
 
 .newBacGroung {
-  background-image: url(./pexels-photo-1105666.jpeg);
+  background-image: url(../../images/pexels-photo-1105666.jpeg);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -73,14 +73,23 @@
   margin-top: 5%;
 }
 
-.bunner {
-  color: rgb(255, 255, 255);
-  font-family: "Russo One", sans-serif;
+.banner {
+  color: rgb(211, 211, 211);
   font-size: 20vh;
-  position: sticky;
-  top: 40vh;
+  transition-duration: 1s;
+  font-weight: normal;
+  animation: fadeIn linear 5s;
+  font-family: "Russo One", sans-serif;
+  margin-top: 25vh;
   z-index: -1;
-
   text-shadow: 1px 0 1px rgb(63, 63, 63), 0 1px 1px rgb(63, 63, 63),
     -1px 0 1px rgb(63, 63, 63), 0 -1px 1px rgb(63, 63, 63);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
