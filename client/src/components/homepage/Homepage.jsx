@@ -97,7 +97,7 @@ export default function Homepage() {
 
             <div className='homePage-post' >
 
-                <img alt='post' src={'./concert3.jpg'} className="homePage-post-img" />
+                <img alt='post' src={''} className="homePage-post-img" />
                 <div className="d-flex  align-items-center flex-column">
                     <h1 className='homePage-post-title'>Полет шмеля</h1>
 

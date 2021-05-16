@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
     "react-calendar": "^3.4.0"
   }
 }
