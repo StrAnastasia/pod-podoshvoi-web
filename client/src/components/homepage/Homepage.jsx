@@ -52,7 +52,7 @@ export default function Homepage() {
     return (
 
         <div className='homePage' >
-            <div className='newBacGroung' style={{ opacity: offsetYImg }} />
+            <div className='newBackground' style={{ opacity: offsetYImg }} />
 
             <div className='banner' style={{ opacity: offsetYHeader }}>
                 ПОД ПОДОШВОЙ

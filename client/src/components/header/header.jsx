@@ -44,7 +44,7 @@ export default function Header() {
 <div>
 
 <Link style={{ marginRight: 20 }} className="textHeader" aria-current="page" to='/homepage'>новости</Link>
-<Link className="textHeader" aria-current="page" to='/homepage'>концерты</Link>
+<Link className="textHeader" aria-current="page" to='/allgigsmap'>концерты</Link>
 </div>
 <div style={{marginRight: 30}}>
 {auth ? (

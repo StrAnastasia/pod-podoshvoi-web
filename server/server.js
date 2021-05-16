@@ -9,7 +9,7 @@ const path = require("path");
 
 var cors = require('cors')
 
-const {database} = require('../back/psevdodb')
+const {database} = require('./psevdodb')
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
