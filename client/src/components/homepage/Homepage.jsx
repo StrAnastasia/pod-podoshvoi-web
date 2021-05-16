@@ -51,9 +51,9 @@ export default function Homepage() {
 
             <div className='homePage-post' style={{ opacity: offsetYPost }}>
 
-                <div style={{marginRight: 400}}>
+                <div>
 
-                    <img alt='post' src={imgPost3} className="homePage-post-img" />
+                    <img alt='post' src={imgPost2} className="homePage-post-img" />
                 </div>
 
 
@@ -94,7 +94,7 @@ export default function Homepage() {
 
             <div className='homePage-post' >
 
-                <img alt='post' src={imgPost2} className="homePage-post-img" />
+                <img alt='post' src={imgPost1} className="homePage-post-img" />
                 <div className="d-flex  align-items-center flex-column">
                     <h1 className='homePage-post-title'>Полет шмеля</h1>
 
@@ -131,7 +131,7 @@ export default function Homepage() {
 
             <div className='homePage-post' >
 
-                <img alt='post' src={imgPost1} className="homePage-post-img" />
+                <img alt='post' src={imgPost3} className="homePage-post-img" />
                 <div className="d-flex  align-items-center flex-column">
                     <h1 className='homePage-post-title'>Мертвая обезьяна</h1>
 
