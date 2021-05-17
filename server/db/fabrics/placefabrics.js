@@ -1,5 +1,5 @@
 const Place = require('../models/Place-models')
-function placeFabrics() {
+async function placeFabrics() {
   const places = [
     {
       name: 'Бункер 47',
@@ -52,7 +52,10 @@ function placeFabrics() {
     },
   ]
   console.log('places here');
-  return Promise.all(places.map((data) => Place.create(data)))
+  const place = await Place.find()
+  console.log(place);
+
+  // return Promise.all(places.map((data) => Place.create(data)))
 }
 
 

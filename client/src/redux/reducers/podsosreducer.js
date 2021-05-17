@@ -1,4 +1,4 @@
-import { GET_LK, GET_NEWS, GET_BAND,GET_GIGS } from '../types/types';
+import { GET_LK, GET_NEWS, GET_BAND, GET_GIGS, GET_SOME_INFO } from '../types/types';
 
 const podsosReducer = (state = {}, action) => {
   switch (action.type) {
@@ -12,7 +12,7 @@ const podsosReducer = (state = {}, action) => {
         ...state,
         news: action.payload
       }
-      case GET_GIGS:
+    case GET_GIGS:
       return {
         ...state,
         gigs: action.payload
@@ -21,6 +21,11 @@ const podsosReducer = (state = {}, action) => {
       return {
         band: action.payload,
       };
+    case GET_SOME_INFO:
+      return {
+        info: action.payload,
+      };
+
     default:
       return state;
   }
