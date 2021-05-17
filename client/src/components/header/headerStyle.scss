@@ -36,7 +36,15 @@
 
 .logo{
     filter: invert(1);
-    width: 5%;
+    height: 7vh;
+}
+
+.logoProfile{
+    filter: invert(1);
+   
+    margin-left: 1vw;
+    margin-right: 0.5vw;
+    height: 2.5vh;
 }
 
 .logoContainer {
@@ -44,5 +52,15 @@
     flex-direction: row;
     align-items: center;
 
+    margin-right: 4vh;
 
+
+}
+
+
+.centerDiv {
+
+    display: flex;
+    align-items: center;
+    margin-right: 11.6vh;
 }

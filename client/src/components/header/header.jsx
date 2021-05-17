@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import './headerStyle.scss'
 import hederLogo from '../../images/pngegg.png'
+import profile from '/home/egor/elbrus/finalProject/pod-podoshvoi-web/client/src/images/pofile.png'
 
 
 import { Link } from "react-router-dom";
@@ -33,7 +34,7 @@ export default function Header() {
 
     <div className='backGroung' style={{ position: 'sticky', top: '0', zIndex: '1' }}>
 
-      <div className='logoContainer'>
+      <div className='logoContainer' >
 
         <img className='logo' src={hederLogo} />
 
@@ -41,27 +42,29 @@ export default function Header() {
 
       </div>
 
-      <div>
+      <div className='centerDiv'>
 
         <Link style={{ marginRight: 20 }} className="textHeader" aria-current="page" to='/homepage' onClick={allnewsHandler}>новости</Link>
-        <Link className="textHeader" aria-current="page" to='/allgigsmap'>концерты</Link>
-      </div>
-      <div style={{ marginRight: 30 }}>
+        <Link style={{ marginRight: 20 }} className="textHeader" aria-current="page" to='/allgigsmap'>концерты</Link>
+        <div style={{color: 'white'}}>|</div>
+
         {auth ? (
           <>
+
+           
             <Link
               className="textHeader" style={{ marginRight: 20 }} aria-current="page"
-              to="/profile" >
+              to="/profile" > 
+              <img className='logoProfile' src={profile} />
               Профиль
                   </Link>
             <a className="textHeader" style={{ marginRight: 20 }} aria-current="page" href='http://localhost:8080/auth/logout'>выход</a>
           </>
         ) : (
-            <>
-              <a className="textHeader" style={{ marginRight: 20 }} aria-current="page" href='http://localhost:8080/auth/login'>вход</a>
-              <a className="textHeader" aria-current="page" href='http://localhost:8080/auth/login'>регистрация</a>
-            </>
-          )}
+          <>
+            <a className="textHeader" style={{ marginLeft: 20 }} aria-current="page" href='http://localhost:8080/auth/login'>вход/регистрация</a>
+          </>
+        )}
 
       </div>
     </div>

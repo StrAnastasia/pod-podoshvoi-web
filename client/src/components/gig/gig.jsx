@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getinfoFunc } from '../../redux/AC/ac'
 
 export default function Gig(props) {
+
   // const { desc, location } = props
 
   // const gig = {
@@ -55,6 +56,7 @@ export default function Gig(props) {
 
             </div>
           </div>
+
         </div>
       </div>
 
