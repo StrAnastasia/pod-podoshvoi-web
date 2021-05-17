@@ -12,6 +12,7 @@ import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
 import Place from "./components/place/Place";
+import Profile from "./components/Profile/Profile";
 
 
 
@@ -21,7 +22,7 @@ import Place from "./components/place/Place";
 
 function App() {
 
-  
+
 
   return (
     <Router>
@@ -42,6 +43,10 @@ function App() {
         <Route path='/place'>
           <Place />
         </Route>
+        <Route path='/profile'>
+          <Profile />
+        </Route>
+
       </Switch>
     </ Router>
   );

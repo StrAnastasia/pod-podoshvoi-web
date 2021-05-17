@@ -5,6 +5,8 @@ import imgPost3 from '../../images/concert2.jpg'
 import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import News from '../news/News'
 
 
 export default function Homepage() {
@@ -46,7 +48,11 @@ export default function Homepage() {
     }, [])
 
 
+    
 
+
+    const newsarray = useSelector(store => store.news);
+    console.log('newsarray', newsarray);
 
 
     return (
@@ -63,8 +69,12 @@ export default function Homepage() {
 
 
             <div className="nullDiv" ></div>
+            
+            <News  newsarray={newsarray} offsetYPost = {offsetYPost} />
 
             <div className='homePage-post' style={{ opacity: offsetYPost }}>
+              
+
 
                 <div>
 
@@ -78,7 +88,7 @@ export default function Homepage() {
 
                 </div>
 
-                <p class="homePage-post-text">
+                <p className="homePage-post-text">
 
                     Есть у меня один товарищ, назовем его Миша Петров. Нормальный чел, работает, все хорошо. Но есть у него один минус, периодически Мишаня любит плотно подружить с различными психоактивными веществами, входящими в реестр запрещенных препаратов. Он не наркоман в полном смысле этого слова, но вполне может, раз в месяц, плотно закинуться кислотой и, на пару дней, покинуть пределы вселенной.
 
@@ -94,7 +104,7 @@ export default function Homepage() {
 
             </div>
 
-            <div className='homePage-post' >
+            <div NclassNameName='homePage-post' >
 
                 <img alt='post' src={imgPost1} className="homePage-post-img" />
                 <div className="d-flex  align-items-center flex-column">
@@ -102,7 +112,7 @@ export default function Homepage() {
 
                 </div>
 
-                <p class="homePage-post-text">
+                <p className="homePage-post-text">
 
                     Есть у меня один товарищ, назовем его Миша Петров. Нормальный чел, работает, все хорошо. Но есть у него один минус, периодически Мишаня любит плотно подружить с различными психоактивными веществами, входящими в реестр запрещенных препаратов. Он не наркоман в полном смысле этого слова, но вполне может, раз в месяц, плотно закинуться кислотой и, на пару дней, покинуть пределы вселенной.
 
@@ -139,7 +149,7 @@ export default function Homepage() {
 
                 </div>
 
-                <p class="homePage-post-text">
+                <p className="homePage-post-text">
 
                     Есть у меня один товарищ, назовем его Миша Петров. Нормальный чел, работает, все хорошо. Но есть у него один минус, периодически Мишаня любит плотно подружить с различными психоактивными веществами, входящими в реестр запрещенных препаратов. Он не наркоман в полном смысле этого слова, но вполне может, раз в месяц, плотно закинуться кислотой и, на пару дней, покинуть пределы вселенной.
 
