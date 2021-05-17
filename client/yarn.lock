@@ -1507,6 +1507,78 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
+"@reach/auto-id@0.15.0":
+  "integrity" "sha512-iACaCcZeqAhDf4OOwJpmHHS/LaRj9z3Ip8JmlhpCrFWV2YOIiiZk42amlBZX6CKH66Md+eriYZQk3TyAjk6Oxg=="
+  "resolved" "https://registry.npmjs.org/@reach/auto-id/-/auto-id-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "@reach/utils" "0.15.0"
+    "tslib" "^2.1.0"
+
+"@reach/combobox@^0.15.1":
+  "integrity" "sha512-4WvxqHYEX2aW2FqNqwJtYYYaTOgyMaZ5OYVWP/iyTunrcbyHWZsoCt3CBR6/AfMsiJ7I7yCxX2tLShjFOGAA+A=="
+  "resolved" "https://registry.npmjs.org/@reach/combobox/-/combobox-0.15.1.tgz"
+  "version" "0.15.1"
+  dependencies:
+    "@reach/auto-id" "0.15.0"
+    "@reach/descendants" "0.15.0"
+    "@reach/popover" "0.15.0"
+    "@reach/portal" "0.15.0"
+    "@reach/utils" "0.15.0"
+    "prop-types" "^15.7.2"
+    "tslib" "^2.1.0"
+
+"@reach/descendants@0.15.0":
+  "integrity" "sha512-MGs+7sGjx07sm29Wc2d/Ya72qwatNVHofnYwwHMT6LImv99kE5TQMCgkMSDeRwqQxHURmcjb4I7Tab+ahvCGiw=="
+  "resolved" "https://registry.npmjs.org/@reach/descendants/-/descendants-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "@reach/utils" "0.15.0"
+    "tslib" "^2.1.0"
+
+"@reach/observe-rect@1.2.0":
+  "integrity" "sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ=="
+  "resolved" "https://registry.npmjs.org/@reach/observe-rect/-/observe-rect-1.2.0.tgz"
+  "version" "1.2.0"
+
+"@reach/popover@0.15.0":
+  "integrity" "sha512-nBR6ZlULF7ZZIqkN47QEWmdqUX2Zd6FSeYJku1il9OkiMnWzI3aTOyu1B+IJfYeIqg28D/aeF4ff0oVu1VUrqQ=="
+  "resolved" "https://registry.npmjs.org/@reach/popover/-/popover-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "@reach/portal" "0.15.0"
+    "@reach/rect" "0.15.0"
+    "@reach/utils" "0.15.0"
+    "tabbable" "^4.0.0"
+    "tslib" "^2.1.0"
+
+"@reach/portal@0.15.0":
+  "integrity" "sha512-Aulqjk/PIRu+R7yhINYAAYfYh++ZdC30qwHDWDtGk2cmTEJT7m9AlvBX+W7T+Q3Ux6Wy5f37eV+TTGid1CcjFw=="
+  "resolved" "https://registry.npmjs.org/@reach/portal/-/portal-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "@reach/utils" "0.15.0"
+    "tslib" "^2.1.0"
+
+"@reach/rect@0.15.0":
+  "integrity" "sha512-Nu0zG4Xq8Z0C3Yr3wbjtj7fvII1q2KopHDStNtmL26oWPzlaZJ9A1K6rZSPIqxKkx1hvl6AUTeom7eHTIKhHjA=="
+  "resolved" "https://registry.npmjs.org/@reach/rect/-/rect-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "@reach/observe-rect" "1.2.0"
+    "@reach/utils" "0.15.0"
+    "prop-types" "^15.7.2"
+    "tiny-warning" "^1.0.3"
+    "tslib" "^2.1.0"
+
+"@reach/utils@0.15.0":
+  "integrity" "sha512-JHHN7T5ucFiuQbqkgv8ECbRWKfRiJxrO/xHR3fHf+f2C7mVs/KkJHhYtovS1iEapR4silygX9PY0+QUmHPOTYw=="
+  "resolved" "https://registry.npmjs.org/@reach/utils/-/utils-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "tiny-warning" "^1.0.3"
+    "tslib" "^2.1.0"
+
 "@react-google-maps/api@^2.1.1":
   version "2.1.1"
   resolved "https://registry.npmjs.org/@react-google-maps/api/-/api-2.1.1.tgz"
@@ -4159,6 +4231,7 @@ deepmerge@^4.2.2:
   version "4.2.2"
   resolved "https://registry.npmjs.org/deepmerge/-/deepmerge-4.2.2.tgz"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+
 
 default-gateway@^4.2.0:
   version "4.2.0"
@@ -9478,6 +9551,7 @@ react-redux@^7.2.4:
   version "7.2.4"
   resolved "https://registry.npmjs.org/react-redux/-/react-redux-7.2.4.tgz"
   integrity sha512-hOQ5eOSkEJEXdpIKbnRyl04LhaWabkDPV+Ix97wqQX3T3d2NQ8DUblNXXtNMavc7DpswyQM6xfaN4HQDKNY2JA==
+
   dependencies:
     "@babel/runtime" "^7.12.1"
     "@types/react-redux" "^7.1.16"
@@ -9593,10 +9667,12 @@ react-scroll-parallax@^2.4.0:
   dependencies:
     prop-types "^15.5.10"
 
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -11070,6 +11146,7 @@ test-exclude@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmjs.org/test-exclude/-/test-exclude-6.0.0.tgz"
   integrity sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==
+=
   dependencies:
     "@istanbuljs/schema" "^0.1.2"
     glob "^7.1.4"
@@ -11541,6 +11618,7 @@ v8-to-istanbul@^7.0.0:
   version "7.1.2"
   resolved "https://registry.npmjs.org/v8-to-istanbul/-/v8-to-istanbul-7.1.2.tgz"
   integrity sha512-TxNb7YEUwkLXCQYeudi6lgQ/SZrzNO4kMdlqVxaZPUIUjCv6iSSypUQX70kNBSERpQ8fk48+d61FXk+tgqcWow==
+
   dependencies:
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
