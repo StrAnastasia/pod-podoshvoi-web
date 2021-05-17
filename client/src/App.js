@@ -11,8 +11,10 @@ import Gig from "./components/gig/gig";
 import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
+import NewGig from "./components/newgig/NewGig";
 import Place from "./components/place/Place";
-
+import { LoadScript } from '@react-google-maps/api';
+import PlacesAutocomplete from "./components/newgig/NewGig";
 
 
 
