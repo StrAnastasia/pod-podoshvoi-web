@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 // import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,6 +9,7 @@ import Gig from "./components/gig/gig";
 import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
+import NewGig from "./components/newgig/NewGig";
 import Place from "./components/place/Place";
 import Profile from "./components/Profile/Profile";
 
@@ -37,7 +36,7 @@ function App() {
         <Route path='/band'>
           <Band />
         </Route>
-        <Route path='/gig'>
+        <Route path='/gigs'>
           <Gig />
         </Route>
         <Route path='/place'>

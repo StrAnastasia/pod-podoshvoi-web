@@ -1,6 +1,6 @@
 
 const Gig = require('../models/Gig-model')
-function gigFabric() {
+async function gigFabric() {
   const gigs = [
     {
       name: 'Гулять!',
@@ -51,8 +51,13 @@ function gigFabric() {
       date: '2021-03-28, 19:00'
     }
   ]
+  const delgig = await Gig.deleteMany()
+  const gig = await Gig.create(gigs)
   console.log('gigs here');
-  return Promise.all(gigs.map((data) => Gig.create(data)))
+  
+  // console.log(gig);
+
+  // return Promise.all(gigs.map((data) => Gig.create(data)))
 }
 
 module.exports = gigFabric
