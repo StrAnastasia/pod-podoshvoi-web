@@ -1,22 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./App.css";
 
-function Profile({ auth }) {
+function Profile() {
+
+
+  const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
+
+
+  useEffect(() => {
+    axios.get('/auth/current-session').then(({ data }) => {
+      setAuth(data);
+    })
+  }, [])
+
+
+
+
   return (
-    <div className="navbar-nav-app">
-     
-      <header className="navbar-nav-app-header">
-         <div className=" navbar-nav-app-link mx-5 ">
-        <Link className="nav-link active" aria-current="page" to="//auth/login">
-         Logout
-        </Link>
-      </div>
-        <p>
-          You are logged in as {auth && auth.nickname ? auth.nickname : null}
-        </p>
+
+      <header className="">
+        <h3>
+          Вы под погонялом {auth && auth.nickname ? auth.nickname : null}
+        </h3>
       </header>
-    </div>
   );
 }
 

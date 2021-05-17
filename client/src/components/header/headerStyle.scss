@@ -1,0 +1,48 @@
+.backGroung{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    height: 70px;
+    width: 100%;
+    background-color: black;   
+    
+}
+
+.textHeader{
+    // font-family: 'Comfortaa', cursive;
+    color: rgb(255, 255, 255);
+    font-size: 120%;
+    text-decoration: none
+    
+}
+.textHeader:hover {
+    color: #a88900; 
+    text-decoration: none; 
+   }
+
+
+//    a {
+//     color: #008000; /* Цвет обычной ссылки */ 
+//     text-decoration: none; /* Убираем подчеркивание у ссылок */
+//    }
+//    a:visited {
+//     color: #800080; /* Цвет посещённой ссылки */
+//    } 
+//    a:hover {
+//     color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */  
+//     text-decoration: underline; /* Добавляем подчеркивание */
+//    }
+
+.logo{
+    filter: invert(1);
+    width: 5%;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+}
