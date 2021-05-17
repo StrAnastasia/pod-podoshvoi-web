@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  
 }
 
 .newBackground {
@@ -52,12 +53,16 @@
   margin-top: -5;
   color: rgb(206, 198, 79);
   font-size: 400%;
+  text-decoration: none!important;
+
 }
 .homePage-post-text {
   font-family: "Comfortaa", cursive;
   font-size: 120%;
   margin-top: 10px;
   color: rgb(228, 228, 228);
+  text-decoration: none;
+
 }
 .homePage-img {
   width: 100%;

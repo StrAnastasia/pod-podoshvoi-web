@@ -19,7 +19,7 @@ async function bandFabric() {
       years: "???-2020, 2021",
       media: { vk: 'https://vk.com/logos_band', insta: 'https://www.instagram.com/logos_band/' },
       musicLinks: { vk: 'https://vk.com/artist/logos_mtu2mjewmzcwnw', yandex: 'https://music.yandex.ru/artist/7579517', spot: 'https://open.spotify.com/artist/44vgY1bSu3oaSqGwJjUYqY' },
-      gigs: ['Гулять!', 'Kaiju party 2020', 'Время Расти'],
+      gigs: ['Гулять!'],
       news: [],
       reviews: []
     },
@@ -113,8 +113,10 @@ async function bandFabric() {
     }
   ]
   // console.log(Band);
-  const bandso = await Band.find()
-  console.log(bandso);
+  const delbandso = await Band.deleteMany()
+  const bandso = await Band.create(bands)
+  console.log('bands here');
+  // console.log(bandso);
   // return Promise.all(bands.map((data) => Band.create(data)))
 }
 
