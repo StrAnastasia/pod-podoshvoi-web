@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 export default function News({ offsetYPost  }) {
   const news = useSelector(state => state.news)
 
-  console.log('newsarrayfrom news', news);
+  //console.log('newsarrayfrom news', news);
   return (
     <>
       {news ? news?.map(el =>
