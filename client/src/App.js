@@ -13,8 +13,8 @@ import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
 import NewGig from "./components/newgig/NewGig";
 import Place from "./components/place/Place";
-import { LoadScript } from '@react-google-maps/api';
-import PlacesAutocomplete from "./components/newgig/NewGig";
+import Profile from "./components/Profile/Profile";
+
 
 
 
@@ -23,7 +23,7 @@ import PlacesAutocomplete from "./components/newgig/NewGig";
 
 function App() {
 
-  
+
 
   return (
     <Router>
@@ -44,6 +44,10 @@ function App() {
         <Route path='/place'>
           <Place />
         </Route>
+        <Route path='/profile'>
+          <Profile />
+        </Route>
+
       </Switch>
     </ Router>
   );
