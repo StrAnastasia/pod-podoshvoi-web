@@ -103,7 +103,7 @@ export default function Map() {
         </GoogleMap>
       </div>
 
-      <div>
+      <div className='buttons'>
         {markers.length ? (
           markers.map((el, indx) => {
             const newStr = JSON.stringify(el);
