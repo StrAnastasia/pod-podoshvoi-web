@@ -91,8 +91,8 @@ export default function Map() {
             }}
           >
             <div>
-              <h2>Auf</h2>
-              <p>reeeeeeee</p>
+              <h4>{selected.adress}</h4>
+              <p>{JSON.stringify(selected.bands)}</p>
             </div>
           </InfoWindow>
         ) : null}
