@@ -60,6 +60,14 @@ export default function Header() {
           >
             концерты
           </Link>
+          <Link
+            style={{ marginRight: 20 }}
+            className="textHeader"
+            aria-current="page"
+            to="/game"
+          >
+            игруля
+          </Link>
           <div style={{ color: "white" }}>|</div>
 
           {auth ? (
@@ -84,17 +92,17 @@ export default function Header() {
               </a>
             </>
           ) : (
-            <>
-              <a
-                className="textHeader"
-                style={{ marginLeft: 20 }}
-                aria-current="page"
-                href="http://localhost:8080/auth/login"
-              >
-                вход/регистрация
+              <>
+                <a
+                  className="textHeader"
+                  style={{ marginLeft: 20 }}
+                  aria-current="page"
+                  href="http://localhost:8080/auth/login"
+                >
+                  вход/регистрация
               </a>
-            </>
-          )}
+              </>
+            )}
         </div>
       </div>
     </>
