@@ -9,9 +9,6 @@ import mapStyle from "./map";
 import axios from "axios";
 import SelectMarkers from "../SelectMarkers/SelectMarkers";
 import "./mapModule.scss";
-
-
-
 export default function Map() {
   const onMapClick = useCallback((event) => {
     setMarkers((current) => [
@@ -34,7 +31,7 @@ export default function Map() {
     mapRef.current.setZoom(14);
   }, []);
   const selectHandler = (e) => {
-    const newStr = JSON.parse(e);
+    const newStr = JSON.parse(e.target.value);
     console.log(newStr);
     panTo(newStr.location);
     setSelected(newStr);
@@ -55,61 +52,58 @@ export default function Map() {
     });
   }, []);
   return (
-
-
     <div className="mapContainer">
       <div>
-
-      <div className="profileBackground" />
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        options={{
-          styles: mapStyle,
-          streetViewControl: false,
-          disableDefaultUI: true,
-          zoomControl: true,
-        }}
-        onClick={onMapClick}
-        onLoad={onMapLoad}
-      >
-        {markers.map((el) => {
-          return (
-            <Marker
-              key={el._id}
-              position={el.location}
-              icon={{
-                url: "/marker.svg",
-                scaledSize: new window.google.maps.Size(30, 30),
+        <div className="profileBackground" />
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+          options={{
+            styles: mapStyle,
+            streetViewControl: false,
+            disableDefaultUI: true,
+            zoomControl: true,
+          }}
+          onClick={onMapClick}
+          onLoad={onMapLoad}
+        >
+          {markers.map((el) => {
+            return (
+              <Marker
+                key={el._id}
+                position={el.location}
+                icon={{
+                  url: "/marker.svg",
+                  scaledSize: new window.google.maps.Size(30, 30),
+                }}
+                onClick={() => {
+                  console.log(el);
+                  setSelected(el);
+                }}
+              />
+            );
+          })}
+          {selected ? (
+            <InfoWindow
+              position={{
+                lat: selected.location.lat,
+                lng: selected.location.lng,
               }}
-              onClick={() => {
-                console.log(el);
-                setSelected(el);
+              onCloseClick={() => {
+                setSelected(null);
               }}
-            />
-          );
-        })}
-        {selected ? (
-          <InfoWindow
-            position={{
-              lat: selected.location.lat,
-              lng: selected.location.lng,
-            }}
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-          >
-            <div>
-              <h4>{selected.adress}</h4>
-              <p>{JSON.stringify(selected.bands)}</p>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
+            >
+              <div>
+                <h2>Auf</h2>
+                <p>reeeeeeee</p>
+              </div>
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
       </div>
 
-      <div>
+      <div className='buttons'>
         {markers.length ? (
           markers.map((el, indx) => {
             const newStr = JSON.stringify(el);
@@ -119,9 +113,6 @@ export default function Map() {
                 indx={indx + 1}
                 value={newStr}
                 num={el._id}
-                name={el.name}
-                date={el.date}
-                selectHandler={selectHandler}
               />
             );
           })
@@ -132,7 +123,6 @@ export default function Map() {
           />
         )}
       </div>
-
     </div>
   );
 }

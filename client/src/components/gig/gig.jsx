@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getinfoFunc } from '../../redux/AC/ac'
+import { getinfoFunc, getplaceFunc } from '../../redux/AC/ac'
 
 export default function Gig(props) {
 
-  // const { desc, location } = props
-
-  // const gig = {
-  //   name: 'Гулять!',
-  //   bands: ['Шейм', 'ЛОГОС', 'Red Hize'],
-  //   adress: "Бункер 47",
-  //   date: "2021-05-23, 18:30"
-  // }
 
   const gig = useSelector(state => state.gigs)
   console.log('gigggggggg', gig);
@@ -22,10 +13,18 @@ export default function Gig(props) {
   const dispatch = useDispatch()
 
   const findHandler = (e) => {
-    console.log(e.target);
-    console.log(e.target.dataset.value, 'findHandler 2');
     let info = e.target.dataset.value
     dispatch(getinfoFunc(info))
+  }
+
+  const place = useSelector(state => state.place)
+
+  const findplaceHandler = (e) => {
+    console.log(e.target);
+    let place = e.target.dataset.value
+    console.log(place);
+    dispatch(getplaceFunc(place))
+
   }
 
 
@@ -39,16 +38,17 @@ export default function Gig(props) {
               <div className="d-flex  align-items-center flex-column">
                 <h1 className='homePage-post-title' >{gig?.name}</h1></div>
               <h4 style={{ 'color': 'white' }}>{gig?.date}</h4>
-              <h5 style={{ 'color': 'white' }}>{gig?.adress}</h5>
+              <Link to={`/place/${gig?.adress}`}>
+                <h5 style={{ 'color': 'white' }} onClick={findplaceHandler} data-value={gig?.adress}>{gig?.adress}</h5>
+              </Link>
 
               <h4 className="homePage-post-text"> тут, возможно, будет описание</h4>
               {/* <p className='desc-el'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est necessitatibus deserunt voluptatibus molestias, possimus omnis laborum illum adipisci, similique nostrum commodi totam error laudantium vel at! Itaque ipsam fugit veniam!</p> */}
               <h5 className='desc-el homePage-post-text'>Лайн-ап:</h5>
               <ul className='desc-el homePage-post-text'>
                 {gig?.bands ? gig?.bands.map(band => {
-                    console.log(band);
-                 return <Link to={`/band/${band}`}>
-                    <li className='desc-el homePage-post-text' onClick={findHandler} data-value={band} ><a>{band}</a></li>
+                  return <Link to={`/band/${band}`}>
+                    <li className='desc-el homePage-post-text' onClick={findHandler} data-value={band}>{band}</li>
                   </Link>
                 })
                   : null}
