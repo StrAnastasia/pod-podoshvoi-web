@@ -1,7 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { GoogleMap, InfoWindow, LoadScript,Marker } from '@react-google-maps/api'
 import mapStyle from './map'
-import "@reach/combobox/styles.css";
 export default function Map() {
   const onMapClick = useCallback( (event)=>{
     setMarkers((current)=>[...current,
