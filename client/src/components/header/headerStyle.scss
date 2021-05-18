@@ -1,4 +1,4 @@
-.backGroung {
+.backGround {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,26 +67,27 @@
   align-items: center;
   margin-right: 11.6vh;
 }
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+
+.sex-modal {
+  border: 5 solid red;
+  align-self: flex-end;
+  //   position: absolute; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  //   transform: translateY(50px);
+
+  //   left: 0;
+  //   top: 0;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+.sex-modal-content {
+  border: 3 blue solid;
+  //   background-color: #fefefe;
+  background-color: red;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */

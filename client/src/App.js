@@ -1,4 +1,5 @@
 // import './App.css';
+import { LoadScript } from "@react-google-maps/api";
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,7 +19,6 @@ import Profile from "./components/Profile/Profile";
 
 
 
-
 function App() {
 
 
@@ -31,7 +31,12 @@ function App() {
           <Homepage />
         </Route>
         <Route path='/allgigsmap'>
+        <LoadScript
+        googleMapsApiKey={'AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk'}
+        libraries = {["places"]}
+        >
           <Map />
+          </LoadScript>
         </Route>
         <Route path='/band'>
           <Band />
