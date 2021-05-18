@@ -10,7 +10,6 @@ export default function News({ offsetYPost }) {
   const dispatch = useDispatch()
 
   const findHandler = (e) => {
-    console.log(e.target.dataset.value);
     let info = e.target.dataset.value
     dispatch(getinfoFunc(info))
   }

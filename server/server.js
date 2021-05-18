@@ -48,6 +48,7 @@ const authRoutes = require("./routes/auth");
 const News = require("./db/models/News-model");
 const Band = require('./db/models/Band-model');
 const Gig = require("./db/models/Gig-model");
+const Place = require("./db/models/Place-models");
 
 app.use("/auth", authRoutes);
 
@@ -64,9 +65,7 @@ app.get('/news', async (req, res) => {
 
 app.get('/bands/:id', async (req, res) => {
   try{
-    console.log(req.params.id);
     const gruppa = req.params.id.replace('_', ' ')
-    console.log(gruppa);
     const theband = await Band.findOne({bandName: gruppa})
     console.log(theband, 'from app server');
     res.json(theband)   //фетч в ас в редухе
@@ -81,9 +80,7 @@ app.get('/gigs/:id', async (req, res) => {
   try{
     console.log(req.params);
     const konts = req.params.id.replace(/_/g, ' ')
-    console.log(konts);
     const thegig = await Gig.findOne({name: konts})
-    console.log(thegig, 'from app server');
     res.json(thegig)   //фетч в ас в редухе
     return
   }catch(err){
@@ -100,6 +97,18 @@ app.get('/gigs', async (req, res) => {
   }catch(err){
     console.log('---->>',err);
     res.json({loh:'loh'}); 
+  }
+})
+
+app.get('/place/:id', async (req, res) => {
+  try{
+    const barchik = req.params.id.replace(/_/g, ' ')
+    const theplace = await Place.findOne({name: barchik})
+    res.json(theplace)   //фетч в ас в редухе
+    return
+  }catch(err){
+    console.log('---->>',err);
+    res.json({}); 
   }
 })
 
