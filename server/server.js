@@ -91,6 +91,17 @@ app.get('/gigs/:id', async (req, res) => {
     res.json({}); 
   }
 })
+app.get('/gigs', async (req, res) => {
+  try{
+    const gigs = await Gig.find()
+    console.log(gigs, 'from app server');
+    res.json(gigs)   //фетч в ас в редухе
+    return
+  }catch(err){
+    console.log('---->>',err);
+    res.json({loh:'loh'}); 
+  }
+})
 
 
 app.listen(8080, () => {

@@ -1,73 +1,106 @@
-.backGroung{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-around;
-    height: 70px;
-    width: 100%;
-    background-color: black;   
-    
+.backGround {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  width: 100%;
+  background-color: black;
 }
 
-.textHeader{
-    // font-family: 'Comfortaa', cursive;
-    color: rgb(255, 255, 255);
-    font-size: 120%;
-    text-decoration: none
-    
+.textHeader {
+  // font-family: 'Comfortaa', cursive;
+  color: rgb(255, 255, 255);
+  font-size: 120%;
+  text-decoration: none;
 }
 .textHeader:hover {
-    color: #a88900; 
-    text-decoration: none; 
-   }
-
+  color: #a88900;
+  text-decoration: none;
+}
 
 //    a {
-//     color: #008000; /* Цвет обычной ссылки */ 
+//     color: #008000; /* Цвет обычной ссылки */
 //     text-decoration: none; /* Убираем подчеркивание у ссылок */
 //    }
 //    a:visited {
 //     color: #800080; /* Цвет посещённой ссылки */
-//    } 
+//    }
 //    a:hover {
-//     color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */  
+//     color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */
 //     text-decoration: underline; /* Добавляем подчеркивание */
 //    }
 
-.logo{
-    position: absolute;
-    filter: invert(1);
-   
-    top:-43%;
-    left:6%;
-   
-    width:150px;
-    height:99px;
-    object-fit:cover;
+// .logo {
+//   filter: invert(1);
+//   height: 7vh;
+.logo {
+  position: absolute;
+  filter: invert(1);
+
+  top: -43%;
+  left: 6%;
+
+  width: 150px;
+  height: 99px;
+  object-fit: cover;
 }
 
-.logoProfile{
-    filter: invert(1);
-   
-    margin-left: 1vw;
-    margin-right: 0.5vw;
-    height: 2.5vh;
+.logoProfile {
+  filter: invert(1);
+
+  margin-left: 1vw;
+  margin-right: 0.5vw;
+  height: 2.5vh;
 }
 
 .logoContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-    margin-right: 4vh;
-
-
+  margin-right: 4vh;
 }
 
-
 .centerDiv {
+  display: flex;
+  align-items: center;
+  margin-right: 11.6vh;
+}
 
-    display: flex;
-    align-items: center;
-    margin-right: 11.6vh;
+.sex-modal {
+  border: 5 solid red;
+  align-self: flex-end;
+  //   position: absolute; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  //   transform: translateY(50px);
+
+  //   left: 0;
+  //   top: 0;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.sex-modal-content {
+  border: 3 blue solid;
+  //   background-color: #fefefe;
+  background-color: red;
+  border: 1px solid #888;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
