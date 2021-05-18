@@ -18,11 +18,12 @@ async function main() {
 
   console.log(process.env.DB_ATLAS_URL);
 
-  await bandFabric()
+  // await bandFabric()
   // await genreFabric()
-  // await gigFabric()
+  await gigFabric()
   // await newsFabric()
   // await placeFabrics()
+  console.log('vi molodets');
   await connection.close();
 }
 

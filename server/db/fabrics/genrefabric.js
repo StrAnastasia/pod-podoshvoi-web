@@ -1,5 +1,5 @@
 const Genre = require('../models/Genre-model')
-function genreFabric() {
+async function genreFabric() {
   const genres = [
     {
       title: "Альтернатива",
@@ -56,7 +56,9 @@ function genreFabric() {
 
   ]
   console.log('genres here');
-  return Promise.all(genres.map((data) => Genre.create(data)))
+  const genre = await Genre.find()
+  console.log(genre);
+  // return Promise.all(genres.map((data) => Genre.create(data)))
 }
 
 
