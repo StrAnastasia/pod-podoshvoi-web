@@ -27,11 +27,23 @@ export default function Header() {
     })
   }, [])
 
+ const modalHandler = (e)=>{
+ return(
+    <div id="myModal" class="modal">
 
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                  </div>
+
+            </div>
+ )
+ }
 
 
   return (
 
+    <>
     <div className='backGroung' style={{ position: 'sticky', top: '0', zIndex: '1' }}>
 
       <div className='logoContainer' >
@@ -54,11 +66,12 @@ export default function Header() {
            
             <Link
               className="textHeader" style={{ marginRight: 20 }} aria-current="page"
-              to="/profile" > 
+            onClick={modalHandler} > 
               <img className='logoProfile' src={profile} />
               Профиль
                   </Link>
             <a className="textHeader" style={{ marginRight: 20 }} aria-current="page" href='http://localhost:8080/auth/logout'>выход</a>
+           
           </>
         ) : (
           <>
@@ -68,5 +81,7 @@ export default function Header() {
 
       </div>
     </div>
+
+  </>
   );
 }
