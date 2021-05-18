@@ -48,7 +48,14 @@ function Dropdown(props) {
     <React.Fragment>
       <button
         ref={referenceRef}
-        class="prof-button"
+        class="
+        
+        
+        
+        
+        
+        
+        "
         onClick={handleDropdownClick}
       >
         {name}
