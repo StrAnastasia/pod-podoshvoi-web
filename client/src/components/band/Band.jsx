@@ -5,8 +5,6 @@ import { getgigFunc } from '../../redux/AC/ac'
 export default function Band() {
 
   const band = useSelector(state => state.band)
-  console.log(band);
-
   const dispatch = useDispatch()
 
   const gigHandler = (e) => {

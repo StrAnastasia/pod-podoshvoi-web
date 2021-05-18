@@ -5,11 +5,11 @@ import {
   Route,
 } from "react-router-dom";
 import Band from "./components/band/Band";
+import Game from "./components/game/Game";
 import Gig from "./components/gig/gig";
 import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
-import NewGig from "./components/newgig/NewGig";
 import Place from "./components/place/Place";
 import Profile from "./components/Profile/Profile";
 
@@ -45,6 +45,10 @@ function App() {
         <Route path='/profile'>
           <Profile />
         </Route>
+        <Route path='/game'>
+          <Game />
+        </Route>
+
 
       </Switch>
     </ Router>

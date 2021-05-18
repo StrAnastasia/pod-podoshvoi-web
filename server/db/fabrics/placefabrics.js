@@ -51,8 +51,8 @@ async function placeFabrics() {
       afisha: null
     },
   ]
-  console.log('places here');
   const place = await Place.find()
+  console.log('places here');
   console.log(place);
 
   // return Promise.all(places.map((data) => Place.create(data)))
