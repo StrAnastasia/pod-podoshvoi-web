@@ -1,0 +1,32 @@
+.select-title {
+    font-family: "Comfortaa", cursive;
+ 
+    color: rgb(255, 255, 255);
+    font-size: 2vh;
+  
+  }
+
+  .select-post {
+      display: flex;
+      flex-direction: row;
+      
+      align-items: center;
+     margin-left: 1vw;
+     background-color: rgb(0, 0, 0);
+        height: auto;
+     width: 14vw;
+     border-radius: 15px;
+     border-style: solid;
+
+     border-width: 1px;
+     border-color: rgb(68, 68, 68);
+    
+   }
+   
+
+.num {
+    font-family: "Comfortaa", cursive;
+ margin-left: 1vw;
+    color: rgb(206, 198, 79);
+    font-size: 2vh;
+}

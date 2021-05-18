@@ -22,12 +22,13 @@ function Profile() {
 
     <header className="">
       <div className='profileBackground' />
-      <div className='profileStyle'>
-        <div className='favorite'>
-
+      <div className='profileContainer'>
+      
+        <div className='favorites'>
+          favorites
         </div>
         <div className='wish'>
-
+          a wish
         </div>
 
 

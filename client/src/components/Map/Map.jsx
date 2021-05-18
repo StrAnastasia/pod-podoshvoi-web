@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 import mapStyle from "./map";
 import axios from "axios";
+import SelectMarkers
 export default function Map() {
   const onMapClick = useCallback((event) => {
     setMarkers((current) => [
@@ -96,17 +97,28 @@ export default function Map() {
             </div>
           </InfoWindow>
         ) : null}
+
+        <div>
+          {markers.length ? (
+            markers.map((el, indx) => {
+              const newStr = JSON.stringify(el);
+              return (
+                <SelectMarkers
+                  key={el._id}
+                  indx={indx + 1}
+                  value={newStr}
+                  num={el._id}
+                />
+              );
+            })
+          ) : (
+            <SelectMarkers
+              value={"as"}
+              num={"тут что то будет после нажатия на карту"}
+            />
+          )}
+        </div>
       </GoogleMap>
-      <select size="5" onChange={selectHandler}>
-        {markers.map((el) => {
-          const newStr = JSON.stringify(el);
-          return (
-            <option key={el._id} value={newStr}>
-              {el.name} {el.date}
-            </option>
-          );
-        })}
-      </select>
     </div>
   );
 }
