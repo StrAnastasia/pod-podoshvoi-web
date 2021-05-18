@@ -35,8 +35,15 @@
 //    }
 
 .logo{
+    position: absolute;
     filter: invert(1);
-    height: 7vh;
+   
+    top:-43%;
+    left:6%;
+   
+    width:150px;
+    height:99px;
+    object-fit:cover;
 }
 
 .logoProfile{

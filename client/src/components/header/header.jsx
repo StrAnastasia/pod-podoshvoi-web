@@ -35,10 +35,10 @@ export default function Header() {
     <div className='backGroung' style={{ position: 'sticky', top: '0', zIndex: '1' }}>
 
       <div className='logoContainer' >
+        <img  className='logo' src={hederLogo} />
 
-        <img className='logo' src={hederLogo} />
 
-        <Link style={{ marginLeft: 10, fontSize: 25 }} onClick={allnewsHandler} className="textHeader" aria-current="page" to='/homepage'>под подошвой</Link>
+        <Link  onClick={allnewsHandler} className="textHeader" aria-current="page" to='/homepage'>под подошвой</Link>
 
       </div>
 
@@ -55,10 +55,10 @@ export default function Header() {
 
 
             <Link
-              className="textHeader" style={{ marginRight: 20 }} aria-current="page"
-              to="/profile" >
+              className="textHeader" style={{ marginRight: 15  }} aria-current="page"
+              to="/profile" > 
               <img className='logoProfile' src={profile} />
-              Профиль
+              {auth && auth.nickname ? auth.nickname : null}
                   </Link>
             <a className="textHeader" style={{ marginRight: 20 }} aria-current="page" href='http://localhost:8080/auth/logout'>выход</a>
           </>
