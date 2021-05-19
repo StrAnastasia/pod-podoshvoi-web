@@ -1,35 +1,27 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import {
-  GoogleMap,
-  InfoWindow,
-  LoadScript,
-  Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import mapStyle from "./map";
 import axios from "axios";
 import SelectMarkers from "../SelectMarkers/SelectMarkers";
 import "./mapModule.scss";
-
-
+import { useDispatch } from "react-redux";
+import { getgigFunc } from "../../redux/AC/ac";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Map() {
-  const onMapClick = useCallback((event) => {
-    setMarkers((current) => [
-      ...current,
-      {
-        location: {
-          lat: event.latLng.lat(),
-          lng: event.latLng.lng(),
-        },
-        time: new Date().getTime(),
-      },
-    ]);
-  }, []);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const gigHandler = (e) => {
+    let giginfo = selected.name;
+    dispatch(getgigFunc(giginfo));
+    history.push(`/gigs/${giginfo}`);
+  };
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
-  const panTo = React.useCallback(({ lat, lng }) => {
+  const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
@@ -55,58 +47,56 @@ export default function Map() {
     });
   }, []);
   return (
-
-
     <div className="mapContainer">
       <div>
-
-      <div className="profileBackground" />
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        options={{
-          styles: mapStyle,
-          streetViewControl: false,
-          disableDefaultUI: true,
-          zoomControl: true,
-        }}
-        onClick={onMapClick}
-        onLoad={onMapLoad}
-      >
-        {markers.map((el) => {
-          return (
-            <Marker
-              key={el._id}
-              position={el.location}
-              icon={{
-                url: "/marker.svg",
-                scaledSize: new window.google.maps.Size(30, 30),
+        <div className="profileBackground" />
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+          options={{
+            styles: mapStyle,
+            streetViewControl: false,
+            disableDefaultUI: true,
+            zoomControl: true,
+          }}
+          onLoad={onMapLoad}
+        >
+          {markers.map((el) => {
+            return (
+              <Marker
+                key={el._id}
+                position={el.location}
+                icon={{
+                  url: "/marker.svg",
+                  scaledSize: new window.google.maps.Size(30, 30),
+                }}
+                onClick={() => {
+                  console.log(el);
+                  setSelected(el);
+                }}
+              />
+            );
+          })}
+          {selected ? (
+            <InfoWindow
+              position={{
+                lat: selected.location.lat,
+                lng: selected.location.lng,
               }}
-              onClick={() => {
-                console.log(el);
-                setSelected(el);
+              onCloseClick={() => {
+                setSelected(null);
               }}
-            />
-          );
-        })}
-        {selected ? (
-          <InfoWindow
-            position={{
-              lat: selected.location.lat,
-              lng: selected.location.lng,
-            }}
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-          >
-            <div>
-              <h4>{selected.adress}</h4>
-              <p>{JSON.stringify(selected.bands)}</p>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
+            >
+              <div>
+                <Link onClick={gigHandler} to={`/gigs/${selected.name}`}>
+                  {selected.adress}
+                </Link>
+                <p>{JSON.stringify(selected.bands)}</p>
+              </div>
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
       </div>
 
       <div>
@@ -117,6 +107,7 @@ export default function Map() {
               <SelectMarkers
                 key={el._id}
                 indx={indx + 1}
+                adress={el.adress}
                 value={newStr}
                 num={el._id}
                 name={el.name}
@@ -132,7 +123,6 @@ export default function Map() {
           />
         )}
       </div>
-
     </div>
   );
 }

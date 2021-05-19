@@ -9,11 +9,13 @@
 }
 
 .textHeader {
-  // font-family: 'Comfortaa', cursive;
   color: rgb(255, 255, 255);
   font-size: 120%;
   text-decoration: none;
+  
 }
+
+
 .textHeader:hover {
   color: #a88900;
   text-decoration: none;
@@ -35,14 +37,11 @@
 //   filter: invert(1);
 //   height: 7vh;
 .logo {
-  position: absolute;
+  
   filter: invert(1);
 
-  top: -43%;
-  left: 6%;
-
-  width: 150px;
-  height: 99px;
+  width: 9vw;
+  height: 7vh;
   object-fit: cover;
 }
 

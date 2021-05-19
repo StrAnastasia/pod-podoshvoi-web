@@ -4,13 +4,10 @@ import "./headerStyle.scss";
 import hederLogo from "../../images/pngegg.png";
 import profile from "../../images/pofile.png";
 import { Link } from "react-router-dom";
-// import { fetchAllNews } from "../../redux/AC/ac";
-// import { useDispatch } from "react-redux";
-import Dropdown from "../modal/Dropdown";
+import Dropdown from "../dropdown/Dropdown";
 
 export default function Header() {
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
-
 
   useEffect(() => {
     axios.get("/auth/current-session").then(({ data }) => {
@@ -25,14 +22,8 @@ export default function Header() {
         style={{ position: "sticky", top: "0", zIndex: "1" }}
       >
         <div className="logoContainer">
-          <img className="logo" src={hederLogo} />
-
-          <Link
-            className="textHeader"
-            aria-current="page"
-            to="/"
-          >
-            под подошвой
+          <Link className="textHeader" aria-current="page" to="/">
+            <img className="logo" src={hederLogo} />
           </Link>
         </div>
 
@@ -63,6 +54,7 @@ export default function Header() {
           </Link>
           <div style={{ color: "white" }}>|</div>
 
+          <img className="logoProfile" src={profile} />
           {auth ? (
             <>
               <Link
@@ -70,32 +62,23 @@ export default function Header() {
                 style={{ marginRight: 20 }}
                 aria-current="page"
               >
-                <img className="logoProfile" src={profile} />
                 {auth && auth.nickname ? (
                   <Dropdown name={auth.nickname} />
                 ) : null}
               </Link>
-              <a
-                className="textHeader"
-                style={{ marginRight: 20 }}
-                aria-current="page"
-                href="http://localhost:8080/auth/logout"
-              >
-                выход
-              </a>
             </>
           ) : (
-              <>
-                <a
-                  className="textHeader"
-                  style={{ marginLeft: 20 }}
-                  aria-current="page"
-                  href="http://localhost:8080/auth/login"
-                >
-                  вход/регистрация
+            <>
+              <a
+                className="textHeader"
+                style={{ marginLeft: 20 }}
+                aria-current="page"
+                href="http://localhost:8080/auth/login"
+              >
+                вход/регистрация
               </a>
-              </>
-            )}
+            </>
+          )}
         </div>
       </div>
     </>
