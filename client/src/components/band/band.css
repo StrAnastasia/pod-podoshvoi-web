@@ -23,9 +23,9 @@ h4 {
 }
 
 .desc-el {
-  margin-bottom: 0px;
-  font-weight: lighter;
-  font-family: Arial, Helvetica, sans-serif;
+
+
+  text-decoration: none;
 }
 
 
@@ -44,4 +44,23 @@ h4 {
   border-width: 2px;
   border-color: rgb(26, 26, 26);
   overflow: hidden;
+}
+
+.band-post-title{
+  font-family: 'OpenType';
+  margin-top: -5;
+  color: rgb(206, 198, 79);
+  font-size: 7vh;
+}
+
+.band-post-class{
+
+ font-family: "Comfortaa", cursive;
+ font-size: 3vh;
+}
+
+.band-post-date{
+  color: rgb(209, 209, 209);
+   font-weight: lighter;
+   font-size: 3vh;
 }

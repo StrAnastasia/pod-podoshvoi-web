@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePopper } from "react-popper";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Dropdown(props) {
@@ -33,9 +34,12 @@ function Dropdown(props) {
 
   function handleDocumentClick(event) {
     if (
-      referenceRef.current.contains(event.target) ||
-      popperRef.current.contains(event.target)
+      referenceRef.current.contains(event.target) 
     ) {
+      return ;
+    } else if (event.target.name) {
+      window.location.assign('//localhost:8080/auth/logout')
+    } else if (popperRef.current.contains(event.target)) {
       return;
     }
     setVisibility(false);
@@ -55,9 +59,22 @@ function Dropdown(props) {
       </button>
       <div ref={popperRef} style={styles.popper} {...attributes.popper}>
         <DropdownContainer style={styles.offset} visible={visible}>
-          <DropdownItem>Element</DropdownItem>
-          <DropdownItem>Element</DropdownItem>
-          <DropdownItem>Element</DropdownItem>
+          <a
+               
+            name='gay'    
+            style={{ marginLeft: 20 }}
+                aria-current="page"
+                href="http://localhost:8080/auth/logout"
+              >
+                logout
+              </a>
+          <DropdownItem> 
+            <Link to="/profile">
+profile
+            </Link>
+            
+           </DropdownItem>
+        
         </DropdownContainer>
       </div>
     </React.Fragment>
