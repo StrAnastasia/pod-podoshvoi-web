@@ -1,9 +1,8 @@
 import './game.css'
 import Pers1 from '../../images/person.png'
 import BlackMap from '../../images/blackmap.png'
-import { useEffect, useState } from 'react'
-// import application from './gameapplication.js'
-// import bubble from '../../images/bubble.png '
+import { useEffect, useRef, useState } from 'react'
+import application from './gameapplication.js'
 export default function Game() {
   let pixelsize = 2
   let speed = 10
@@ -18,83 +17,40 @@ export default function Game() {
   const [backgroundcrowdplacetop, setbackgroundcrowdplacetop] = useState(150)
   const [backgroundcrowdplaceleft, setbackgroundcrowdplaceleft] = useState(100)
   const characterspritesheet = { 'position': 'absolute', 'backgroundImage': `url(${Pers1})`, 'backgroundSize': '100%', 'width': `${pixelsize * 30}px`, 'height': `60px`, 'top': `${fromTop}px`, 'left': `${fromLeft}px` }
-  const crowdstyle = {'position': 'absolute', 'width': `${pixelsize * 100}px`, 'height': `90px`, 'top': `${backgroundcrowdplacetop}px`, 'left': `${backgroundcrowdplaceleft}px`, 'backgroundColor': 'yellow'}
-  const bubblestyle = {visibility: '', 'position': 'absolute', 'width': `${pixelsize * 70}px`, 'height': `20px`, 'top': `${fromTop + 30}px`, 'left': `${fromLeft + 10}px`}
-  // 'backgroundImage': `url(${bubble})`
+  const crowdstyle = { 'position': 'absolute', 'width': `${pixelsize * 100}px`, 'height': `90px`, 'top': `${backgroundcrowdplacetop}px`, 'left': `${backgroundcrowdplaceleft}px`, 'backgroundColor': 'yellow' }
+  const [vis, setVis] = useState('hidden')
+  const bubblestyle = { 'backgroundColor': `white`, visibility: `${vis}`, 'position': 'absolute', 'width': `${pixelsize * 70}px`, 'height': `20px`, 'top': `${fromTop + 70}px`, 'left': `${fromLeft + 3}px`, height: '8vh', width: '11vw' }
 
-
-
-  // //варик юли
-  // const walkHandler = async (e) => {
-  //   switch (e.keyCode) {                            // wasd
-  //     case 65:
-  //       console.log('go vlevo');
-  //       break;
-  //     case 87:
-  //       console.log('go vverh');
-
-  //       break;
-  //     case 68:
-  //       await setLeft(prev => prev++)
-
-  //       break;
-  //     case 83:
-  //       await setFromTop(prev => prev + 1)
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  //   console.log(fromTop);
-  // }
-
-  // useEffect((e) => {
-  //   console.log('ya tut', fromTop);
-  //   const gamediv = document.querySelector('.gamediv')
-  //   if (gamediv) document.addEventListener('keydown', walkHandler)
-  //   // return null
-  // }, [fromTop])
-
-  const onKeyDown = e =>{
-    console.log('------------------->', e);
-    console.log('sldkjfbas;lfnasd;kjbfnasnlkfsd;vbasjkdbk;asjdv');
-    }
   
 
 
+  const walkHandler = (e) => {
+    switch (e.keyCode) {
+      case 65:
+      case 37:
+        setLeft(prev => prev - speed)
+        break;
+      case 87:
+      case 38:
+        setFromTop(prev => prev - speed)
+        break;
+      case 68:
+      case 39:
+        setLeft(prev => prev + speed)
 
+        break;
+      case 83:
+      case 40:
+        setFromTop(prev => prev + speed)
+        break;
 
-
-  // //варик индуса с ютуба
-  //   function useKey(key, cb) {
-  //     console.log('usekey');
-  //     const callbackRef = useRef(cb)
-  //     useEffect(() => {
-  //       function handle(event) {
-  //         console.log(event);
-  //         if (event.code === key) {
-  //           callbackRef.current(event)
-  //         }
-  //       }
-  //       // const gamediv = document.querySelector('.gamediv')
-  //       // if (gamediv) 
-  //       document.addEventListener('keypress', handle)
-  //       return document.removeEventListener('keypress', handle)
-  //     }, [key])
-  //   }
-
-  //   function handleEnter() {
-  //     console.log('enter is pressed');                         //enter и a
-  //   }
-  //   function handleA() {
-  //     console.log('a is pressed');
-  //   }
-
-  //   useKey('Enter', handleEnter)
-  //   useKey('a', handleA)
-
-
-
+      default:
+        break;
+    }}
+  useEffect((e) => {
+    const gamediv = document.querySelector('.gamediv')
+    if (gamediv) document.addEventListener('keydown', walkHandler)
+  }, [])
 
 
 
@@ -118,23 +74,29 @@ export default function Game() {
   }
 
   function chooseaction() {
+    if (vis === '') {
+      setVis('hidden')
+    } else {
+      setVis('')
+    }
 
   }
 
   return (
     <>
       <h1 style={{ color: 'white', marginLeft: '37%' }}>настя плакоет</h1>
-      <div className='gamediv' style={styleofallthegame, { marginTop: "1%" }} onKeyDown={onKeyDown} >
+      <div className='gamediv' style={styleofallthegame, { marginTop: "1%" }} >
         <div className='camera' style={camerastyle}  >
           <div className='map' style={mapstyle} >
-            <div className='crowd' style={crowdstyle} onClick={chooseaction}>  
+            <div className='crowd' style={crowdstyle} onClick={chooseaction}>
               {/* <div className=''></div> */}
             </div>
             <div className='character' style={charstyle}>
               <div className="character_spritesheet pixel-art" style={characterspritesheet}>
-                <div style={bubblestyle}></div>
+
                 {/* разные классы на разный поворот (к камере, вправо, влево, от камеры) */}
               </div>
+              <div style={bubblestyle}><b> > бросить музыкантам монетку?          </b><b>> подпеть</b></div>
             </div>
           </div>
         </div>
