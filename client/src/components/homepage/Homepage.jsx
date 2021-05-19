@@ -5,11 +5,24 @@ import imgPost3 from '../../images/concert2.jpg'
 import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import News from '../news/News'
+
+import { fetchAllNews } from "../../redux/AC/ac";
+
 
 
 export default function Homepage() {
+  
+  const dispatch = useDispatch();
+
+  const allnewsHandler = async () => {
+    dispatch(fetchAllNews()); //-- thunk
+  };
+
+  useEffect(() => {
+    allnewsHandler()
+  }, [])
 
     const [offsetYPost, setOffsetYPost] = useState(0);
 
@@ -66,9 +79,10 @@ export default function Homepage() {
         <div className='homePageHeader'>
 
 
-            <div className='banner' style={{ opacity: offsetYHeader }}>
+            <div className='banner' style={{ opacity: offsetYHeader }} >
                 POD PODOSHVOI
             </div>
+            {/* <button onClick={allnewsHandler}></button> */}
 <div className="nullDiv" ></div>
         </div>
 
