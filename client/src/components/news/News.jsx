@@ -6,7 +6,7 @@ import {getinfoFunc} from '../../redux/AC/ac'
 export default function News({ offsetYPost }) {
   const news = useSelector(state => state.news)
 
-  console.log('newsarrayfrom news', news);
+  // console.log('newsarrayfrom news', news);
   const dispatch = useDispatch()
 
   const findHandler = (e) => {

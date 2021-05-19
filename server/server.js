@@ -55,6 +55,7 @@ app.use("/auth", authRoutes);
 app.get('/news', async (req, res) => {
   try{
     const allnews = await News.find()
+    console.log(allnews);
     res.json(allnews)   //фетч в ас в редухе
     return
   }catch(err){
