@@ -14,23 +14,26 @@ export default function News({ offsetYPost }) {
     dispatch(getinfoFunc(info))
   }
 
+  console.log('news', news);
+
   return (
     <>
-      {news ? news?.map(el =>
+      {news ? news.map(el =>
 
-        <div className='homePage-post' style={{ opacity: offsetYPost }} >
+        {console.log(`/band/${el?.tags[0]}`);
+        return <div className='homePage-post' style={{ opacity: offsetYPost }} >
           <div>
             {el?.image ? <img alt='post' src={el?.image} className="homePage-post-img" /> : null}
           </div>
           <div className="d-flex  align-items-center flex-column">
-            <Link onClick={findHandler} data-value={el?.tags[0]} to={`/band/${el?.tags[0]}`} className='homePage-post-title' style={{"text-decoration": "none"}}>
+            <Link onClick={findHandler} data-value={el?.tags[0]} to={`/band/${el?.tags[0]}`} className='homePage-post-title' style={{textDecoration: "none"}}>
             {el?.title}
             </Link>
 
           </div>
 
           <p className="homePage-post-text">{el?.text}</p>
-        </div>
+        </div>}
       )
         : null}
     </>)

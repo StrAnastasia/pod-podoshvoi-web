@@ -25,18 +25,14 @@ export default function Header() {
         style={{ position: "sticky", top: "0", zIndex: "1" }}
       >
         <div className="logoContainer">
-          <img className="logo" src={hederLogo} />
 
           <Link
-<<<<<<< HEAD
-            // onClick={allnewsHandler}
-=======
->>>>>>> ce983ded9c433f78e338821791a64498b319d50c
             className="textHeader"
             aria-current="page"
             to="/"
           >
-            Под подошвой
+          <img className="logo" src={hederLogo} />
+            
           </Link>
         </div>
 
@@ -46,10 +42,6 @@ export default function Header() {
             className="textHeader"
             aria-current="page"
             to="/"
-<<<<<<< HEAD
-            // onClick={allnewsHandler}
-=======
->>>>>>> ce983ded9c433f78e338821791a64498b319d50c
           >
             новости
           </Link>

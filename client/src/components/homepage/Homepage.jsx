@@ -36,24 +36,6 @@ export default function Homepage() {
     const newsarray = useSelector(store => store.news);
 
 
-    const dispatch = useDispatch()
-        const allnewsHandler = async () => {
-            if (firstUpdate.current) {
-                firstUpdate.current = false;
-              } else {
-                  dispatch(fetchAllNews()); //-- thunk
-          
-              }
-            
-          };
-
-        //   allnewsHandler()
-    useEffect(() => {
-        allnewsHandler()
-        // window.addEventListener('DOMContentLoaded', allnewsHandler);
-        // return () => window.removeEventListener('DOMContentLoaded', allnewsHandler);
-    }, [])
-
 
 
     const handleScrollPost = () => {

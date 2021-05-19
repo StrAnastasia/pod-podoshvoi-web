@@ -67,6 +67,7 @@ app.get('/news', async (req, res) => {
 
 app.get('/bands/:id', async (req, res) => {
   try{
+    console.log('darova tvarina');
     const gruppa = req.params.id.replace('_', ' ')
     const theband = await Band.findOne({bandName: gruppa})
     console.log(theband, 'from app server');
