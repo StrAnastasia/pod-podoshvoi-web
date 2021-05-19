@@ -21,7 +21,6 @@ export default function Game() {
   const [vis, setVis] = useState('hidden')
   const bubblestyle = { 'backgroundColor': `white`, visibility: `${vis}`, 'position': 'absolute', 'width': `${pixelsize * 70}px`, 'height': `20px`, 'top': `${fromTop + 70}px`, 'left': `${fromLeft + 3}px`, height: '8vh', width: '11vw' }
 
-  
 
 
   const walkHandler = (e) => {
