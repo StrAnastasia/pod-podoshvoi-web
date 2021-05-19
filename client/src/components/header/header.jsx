@@ -22,10 +22,8 @@ export default function Header() {
         style={{ position: "sticky", top: "0", zIndex: "1" }}
       >
         <div className="logoContainer">
-          <img className="logo" src={hederLogo} />
-
           <Link className="textHeader" aria-current="page" to="/">
-            под подошвой
+            <img className="logo" src={hederLogo} />
           </Link>
         </div>
 
@@ -56,6 +54,7 @@ export default function Header() {
           </Link>
           <div style={{ color: "white" }}>|</div>
 
+          <img className="logoProfile" src={profile} />
           {auth ? (
             <>
               <Link
@@ -63,19 +62,10 @@ export default function Header() {
                 style={{ marginRight: 20 }}
                 aria-current="page"
               >
-                <img className="logoProfile" src={profile} />
                 {auth && auth.nickname ? (
                   <Dropdown name={auth.nickname} />
                 ) : null}
               </Link>
-              <a
-                className="textHeader"
-                style={{ marginRight: 20 }}
-                aria-current="page"
-                href="http://localhost:8080/auth/logout"
-              >
-                выход
-              </a>
             </>
           ) : (
             <>

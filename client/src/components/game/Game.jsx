@@ -50,7 +50,11 @@ export default function Game() {
     // return null
   }, [fromTop])
 
-
+  const onKeyDown = e =>{
+    console.log('------------------->', e);
+    console.log('sldkjfbas;lfnasd;kjbfnasnlkfsd;vbasjkdbk;asjdv');
+    }
+  
 
 
 
@@ -100,7 +104,7 @@ export default function Game() {
   return (
     <>
       <h1 style={{ color: 'white', marginLeft: '37%' }}>настя плакоет</h1>
-      <div className='gamediv' style={styleofallthegame, { marginTop: "1%" }} >
+      <div className='gamediv' style={styleofallthegame, { marginTop: "1%" }} onKeyDown={onKeyDown} >
         <div className='camera' style={camerastyle}  >
           <div className='map' style={mapstyle} >
             <div className='character' style={charstyle}>
