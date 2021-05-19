@@ -20,35 +20,35 @@ export default function Game() {
 
 
   // //варик юли
-  // const walkHandler = async (e) => {
-  //   switch (e.keyCode) {                            // wasd
-  //     case 65:
-  //       console.log('go vlevo');
-  //       break;
-  //     case 87:
-  //       console.log('go vverh');
+  const walkHandler = async (e) => {
+    switch (e.keyCode) {                            // wasd
+      case 65:
+        console.log('go vlevo');
+        break;
+      case 87:
+        console.log('go vverh');
 
-  //       break;
-  //     case 68:
-  //       await setLeft(prev => prev++)
+        break;
+      case 68:
+        await setLeft(prev => prev++)
 
-  //       break;
-  //     case 83:
-  //       await setFromTop(prev => prev + 1)
-  //       break;
+        break;
+      case 83:
+        await setFromTop(prev => prev + 1)
+        break;
 
-  //     default:
-  //       break;
-  //   }
-  //   console.log(fromTop);
-  // }
+      default:
+        break;
+    }
+    console.log(fromTop);
+  }
 
-  // useEffect((e) => {
-  //   console.log('ya tut', fromTop);
-  //   const gamediv = document.querySelector('.gamediv')
-  //   if (gamediv) document.addEventListener('keydown', walkHandler)
-  //   // return null
-  // }, [fromTop])
+  useEffect((e) => {
+    console.log('ya tut', fromTop);
+    const gamediv = document.querySelector('.gamediv')
+    if (gamediv) document.addEventListener('keydown', walkHandler)
+    // return null
+  }, [fromTop])
 
 
 
