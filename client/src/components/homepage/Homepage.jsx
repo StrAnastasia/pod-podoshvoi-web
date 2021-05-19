@@ -67,7 +67,7 @@ export default function Homepage() {
 
 
             <div className='banner' style={{ opacity: offsetYHeader }}>
-                POD PODOSHVOI 
+                POD PODOSHVOI
             </div>
 <div className="nullDiv" ></div>
         </div>
