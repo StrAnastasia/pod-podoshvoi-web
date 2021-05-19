@@ -5,17 +5,12 @@ import hederLogo from "../../images/pngegg.png";
 import profile from "../../images/pofile.png";
 import { Link } from "react-router-dom";
 // import { fetchAllNews } from "../../redux/AC/ac";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import Dropdown from "../modal/Dropdown";
 
 export default function Header() {
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
 
-  const dispatch = useDispatch();
-
-  // const allnewsHandler = async () => {
-  //   dispatch(fetchAllNews()); //-- thunk
-  // };
 
   useEffect(() => {
     axios.get("/auth/current-session").then(({ data }) => {
@@ -33,7 +28,10 @@ export default function Header() {
           <img className="logo" src={hederLogo} />
 
           <Link
+<<<<<<< HEAD
             // onClick={allnewsHandler}
+=======
+>>>>>>> ce983ded9c433f78e338821791a64498b319d50c
             className="textHeader"
             aria-current="page"
             to="/"
@@ -48,7 +46,10 @@ export default function Header() {
             className="textHeader"
             aria-current="page"
             to="/"
+<<<<<<< HEAD
             // onClick={allnewsHandler}
+=======
+>>>>>>> ce983ded9c433f78e338821791a64498b319d50c
           >
             новости
           </Link>
