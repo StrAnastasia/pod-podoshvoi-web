@@ -64,6 +64,7 @@ app.get('/news', async (req, res) => {
   }
 })
 
+
 app.get('/bands/:id', async (req, res) => {
   try{
     const gruppa = req.params.id.replace('_', ' ')
