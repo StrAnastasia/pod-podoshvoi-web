@@ -89,7 +89,7 @@ export default function Game() {
 
 
 
-  
+
   //варик с кнопками на экране
   function goleft() {
     console.log('вы нажали на стрелку, вам забита стрелка');
@@ -127,7 +127,6 @@ export default function Game() {
           </button>
         </div>
       </div>
-
 
     </>
   )
