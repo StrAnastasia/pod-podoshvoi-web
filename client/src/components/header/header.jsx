@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import './headerStyle.scss'
 import hederLogo from '../../images/pngegg.png'
-import profile from '/home/egor/elbrus/finalProject/pod-podoshvoi-web/client/src/images/pofile.png'
+import profile from '../../images/pofile.png'
 
 
 import { Link } from "react-router-dom";
