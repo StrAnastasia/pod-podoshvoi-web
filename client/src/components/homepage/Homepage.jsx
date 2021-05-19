@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import imgPost1 from '../../images/concert3.jpg'
 import imgPost2 from '../../images/concert.jpg'
 import imgPost3 from '../../images/concert2.jpg'
@@ -31,7 +31,15 @@ export default function Homepage() {
     const [offsetYHeader, setOffsetYHeader] = useState(1)
 
 
+    const firstUpdate = useRef(true)
+
+    const newsarray = useSelector(store => store.news);
+
+
+
+
     const handleScrollPost = () => {
+        
         setOffsetYPost(window.pageYOffset * 0.004);
     }
 
@@ -62,9 +70,7 @@ export default function Homepage() {
 
 
 
-
-
-    const newsarray = useSelector(store => store.news);
+      
     //console.log('newsarray', newsarray);
 
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePopper } from "react-popper";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import "./dropdown.scss";
 
 function Dropdown(props) {
   const [visible, setVisibility] = useState(false);
@@ -32,10 +34,11 @@ function Dropdown(props) {
   }, []);
 
   function handleDocumentClick(event) {
-    if (
-      referenceRef.current.contains(event.target) ||
-      popperRef.current.contains(event.target)
-    ) {
+    if (referenceRef.current.contains(event.target)) {
+      return;
+    } else if (event.target.name) {
+      window.location.assign("//localhost:8080/auth/logout");
+    } else if (popperRef.current.contains(event.target)) {
       return;
     }
     setVisibility(false);
@@ -45,22 +48,32 @@ function Dropdown(props) {
   }
 
   return (
-    <React.Fragment>
-      <button
-        ref={referenceRef}
-        class="prof-button"
-        onClick={handleDropdownClick}
-      >
+    <div style={{ backgroundColor: "black" }}>
+      <div ref={referenceRef} onClick={handleDropdownClick}>
         {name}
-      </button>
+      </div>
       <div ref={popperRef} style={styles.popper} {...attributes.popper}>
-        <DropdownContainer style={styles.offset} visible={visible}>
-          <DropdownItem>Element</DropdownItem>
-          <DropdownItem>Element</DropdownItem>
-          <DropdownItem>Element</DropdownItem>
+        <DropdownContainer className="dropDownContainer" visible={visible}>
+          <DropdownItem>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/profile"
+            >
+              профиль
+            </Link>
+          </DropdownItem>
+
+          <a
+            name="gay"
+            style={{ marginLeft: 20, textDecoration: "none", color: "black" }}
+            aria-current="page"
+            href="http://localhost:8080/auth/logout"
+          >
+            выйти
+          </a>
         </DropdownContainer>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
