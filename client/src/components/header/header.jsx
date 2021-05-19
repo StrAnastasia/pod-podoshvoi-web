@@ -4,9 +4,7 @@ import "./headerStyle.scss";
 import hederLogo from "../../images/pngegg.png";
 import profile from "../../images/pofile.png";
 import { Link } from "react-router-dom";
-// import { fetchAllNews } from "../../redux/AC/ac";
-// import { useDispatch } from "react-redux";
-import Dropdown from "../modal/Dropdown";
+import Dropdown from "../dropdown/Dropdown";
 
 export default function Header() {
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES

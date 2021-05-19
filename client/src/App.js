@@ -38,13 +38,13 @@ function App() {
           <Map />
           </LoadScript>
         </Route>
-        <Route exact path='/band'>
+        <Route exact path='/band/:id'>
           <Band />
         </Route>
-        <Route exact path='/gigs'>
+        <Route exact path='/gigs/:id'>
           <Gig />
         </Route>
-        <Route exact path='/place'>
+        <Route exact path='/place/:id'>
           <Place />
         </Route>
         <Route exact path='/profile'>

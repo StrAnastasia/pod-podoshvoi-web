@@ -4,13 +4,24 @@ import mapStyle from "./map";
 import axios from "axios";
 import SelectMarkers from "../SelectMarkers/SelectMarkers";
 import "./mapModule.scss";
+import { useDispatch } from "react-redux";
+import { getgigFunc } from "../../redux/AC/ac";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Map() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const gigHandler = (e) => {
+    let giginfo = selected.name;
+    dispatch(getgigFunc(giginfo));
+    history.push(`/gigs/${giginfo}`);
+  };
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
-  const panTo = React.useCallback(({ lat, lng }) => {
+  const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
@@ -78,7 +89,9 @@ export default function Map() {
               }}
             >
               <div>
-                <h4>{selected.adress}</h4>
+                <Link onClick={gigHandler} to={`/gigs/${selected.name}`}>
+                  {selected.adress}
+                </Link>
                 <p>{JSON.stringify(selected.bands)}</p>
               </div>
             </InfoWindow>
@@ -94,6 +107,7 @@ export default function Map() {
               <SelectMarkers
                 key={el._id}
                 indx={indx + 1}
+                adress={el.adress}
                 value={newStr}
                 num={el._id}
                 name={el.name}
