@@ -1,0 +1,26 @@
+.profileBackground {
+    background-image: url(../../images/pexels-photo-1105666.jpeg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+    opacity: 0.2;
+  }
+
+  .mapContainer{
+      display: flex;
+      flex-direction: row;
+      
+      justify-content: center;
+      margin-top: 10vh;
+  }
+
+  .buttons{
+     
+  }

@@ -1,32 +1,37 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  InfoWindow,
+  LoadScript,
+  Marker,
+} from "@react-google-maps/api";
 import mapStyle from "./map";
 import axios from "axios";
 import SelectMarkers from "../SelectMarkers/SelectMarkers";
 import "./mapModule.scss";
-import { useDispatch } from "react-redux";
-import { getgigFunc } from "../../redux/AC/ac";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-
 export default function Map() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const gigHandler = (e) => {
-    let giginfo = selected.name;
-    dispatch(getgigFunc(giginfo));
-    history.push(`/gigs/${giginfo}`);
-  };
+  const onMapClick = useCallback((event) => {
+    setMarkers((current) => [
+      ...current,
+      {
+        location: {
+          lat: event.latLng.lat(),
+          lng: event.latLng.lng(),
+        },
+        time: new Date().getTime(),
+      },
+    ]);
+  }, []);
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
-  const panTo = useCallback(({ lat, lng }) => {
+  const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
   const selectHandler = (e) => {
-    const newStr = JSON.parse(e);
+    const newStr = JSON.parse(e.target.value);
     console.log(newStr);
     panTo(newStr.location);
     setSelected(newStr);
@@ -60,6 +65,7 @@ export default function Map() {
             disableDefaultUI: true,
             zoomControl: true,
           }}
+          onClick={onMapClick}
           onLoad={onMapLoad}
         >
           {markers.map((el) => {
@@ -89,17 +95,15 @@ export default function Map() {
               }}
             >
               <div>
-                <Link onClick={gigHandler} to={`/gigs/${selected.name}`}>
-                  {selected.adress}
-                </Link>
-                <p>{JSON.stringify(selected.bands)}</p>
+                <h2>Auf</h2>
+                <p>reeeeeeee</p>
               </div>
             </InfoWindow>
           ) : null}
         </GoogleMap>
       </div>
 
-      <div>
+      <div className='buttons'>
         {markers.length ? (
           markers.map((el, indx) => {
             const newStr = JSON.stringify(el);
@@ -107,12 +111,8 @@ export default function Map() {
               <SelectMarkers
                 key={el._id}
                 indx={indx + 1}
-                adress={el.adress}
                 value={newStr}
                 num={el._id}
-                name={el.name}
-                date={el.date}
-                selectHandler={selectHandler}
               />
             );
           })

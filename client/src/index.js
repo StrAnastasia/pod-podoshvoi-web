@@ -4,7 +4,10 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './redux/store/store';
 import './fonts/RocksDeath.ttf'
+import './fonts/10929.otf'
+import './fonts/18036.otf'
 import './index.css'
+import './fonts/Beast.ttf'
 
 ReactDOM.render(
   <Provider store={store}>

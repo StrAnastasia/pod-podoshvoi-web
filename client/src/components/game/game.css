@@ -1,0 +1,50 @@
+.gamediv {
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.triangle-left {
+  position: absolute;
+	width: 0;
+	height: 0;
+  top: 1.5vh;
+  left: 1.5vw;
+	border-top: 20px solid transparent;
+	border-right: 30px solid blueviolet;
+	border-bottom: 20px solid transparent;
+}
+.triangle-right {
+  position: absolute;
+	width: 0;
+	height: 0;
+  top: 1.5vh;
+  left: 2vw;
+	border-top: 20px solid transparent;
+	border-left: 30px solid blueviolet;
+	border-bottom: 20px solid transparent;
+}
+
+.triangle-up {
+  position: absolute;
+	width: 0;
+	height: 0;
+  top: 1.5vh;
+  left: 1.3vw;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 30px solid blueviolet;
+}
+
+.triangle-down {
+  position: absolute;
+	width: 0;
+	height: 0;
+  top: 2.1vh;
+  left: 1.4vw;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 30px solid blueviolet;
+}

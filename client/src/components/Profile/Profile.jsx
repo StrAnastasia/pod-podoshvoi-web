@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import './profileModule.scss'
 
 function Profile() {
 
@@ -18,11 +20,21 @@ function Profile() {
 
   return (
 
-      <header className="">
-        <h3>
-          Вы под погонялом {auth && auth.nickname ? auth.nickname : null}
-        </h3>
-      </header>
+    <header className="">
+      <div className='profileBackground' />
+      <div className='profileContainer'>
+      
+        <div className='favorites'>
+          favorites
+        </div>
+        <div className='wish'>
+          a wish
+        </div>
+
+
+      </div>
+
+    </header>
   );
 }
 

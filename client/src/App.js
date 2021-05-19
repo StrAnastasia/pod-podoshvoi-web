@@ -1,18 +1,18 @@
 // import './App.css';
+import { LoadScript } from "@react-google-maps/api";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 import Band from "./components/band/Band";
+import Game from "./components/game/Game";
 import Gig from "./components/gig/gig";
 import Header from './components/header/header';
 import Homepage from "./components/homepage/Homepage";
 import Map from "./components/Map/Map";
-import NewGig from "./components/newgig/NewGig";
 import Place from "./components/place/Place";
 import Profile from "./components/Profile/Profile";
-
 
 
 
@@ -27,24 +27,33 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path='/homepage'>
+        <Route exact path='/'>
           <Homepage />
         </Route>
-        <Route path='/allgigsmap'>
+        <Route exact path='/allgigsmap'>
+        <LoadScript
+        googleMapsApiKey={'AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk'}
+        libraries = {["places"]}
+        >
           <Map />
+          </LoadScript>
         </Route>
-        <Route path='/band'>
+        <Route exact path='/band/:id'>
           <Band />
         </Route>
-        <Route path='/gigs'>
+        <Route exact path='/gigs/:id'>
           <Gig />
         </Route>
-        <Route path='/place'>
+        <Route exact path='/place/:id'>
           <Place />
         </Route>
-        <Route path='/profile'>
+        <Route exact path='/profile'>
           <Profile />
         </Route>
+        <Route exact path='/game'>
+          <Game />
+        </Route>
+
 
       </Switch>
     </ Router>

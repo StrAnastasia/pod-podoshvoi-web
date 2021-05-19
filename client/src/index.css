@@ -4,3 +4,27 @@
     url('./fonts/RocksDeath.ttf') format('truetype');
     font-weight: normal;
 }
+
+@font-face {
+    font-family: 'Defused';
+    src: local('Defused'),
+    url('./fonts/10929.otf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'OpenType';
+    src: local('Defused'),
+    url('./fonts/18036.otf') format('truetype');
+    font-weight: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'BeastImpacted';
+    src: local('Defused'),
+    url('./fonts/Beast.ttf') format('truetype');
+    font-weight: normal;
+}

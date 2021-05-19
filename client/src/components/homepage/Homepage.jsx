@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import imgPost1 from '../../images/concert3.jpg'
 import imgPost2 from '../../images/concert.jpg'
 import imgPost3 from '../../images/concert2.jpg'
 import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import News from '../news/News'
+
+import { fetchAllNews } from "../../redux/AC/ac";
+
 
 
 export default function Homepage() {
+  
+  const dispatch = useDispatch();
+
+  const allnewsHandler = async () => {
+    dispatch(fetchAllNews()); //-- thunk
+  };
+
+  useEffect(() => {
+    allnewsHandler()
+  }, [])
 
     const [offsetYPost, setOffsetYPost] = useState(0);
 
@@ -18,7 +31,15 @@ export default function Homepage() {
     const [offsetYHeader, setOffsetYHeader] = useState(1)
 
 
+    const firstUpdate = useRef(true)
+
+    const newsarray = useSelector(store => store.news);
+
+
+
+
     const handleScrollPost = () => {
+        
         setOffsetYPost(window.pageYOffset * 0.004);
     }
 
@@ -49,9 +70,7 @@ export default function Homepage() {
 
 
 
-
-
-    const newsarray = useSelector(store => store.news);
+      
     //console.log('newsarray', newsarray);
 
 
@@ -66,9 +85,10 @@ export default function Homepage() {
         <div className='homePageHeader'>
 
 
-            <div className='banner' style={{ opacity: offsetYHeader }}>
-                UNDER SOLE
+            <div className='banner' style={{ opacity: offsetYHeader }} >
+                POD PODOSHVOI
             </div>
+            {/* <button onClick={allnewsHandler}></button> */}
 <div className="nullDiv" ></div>
         </div>
 
