@@ -18,3 +18,13 @@
     url('./fonts/18036.otf') format('truetype');
     font-weight: normal;
 }
+
+
+
+
+@font-face {
+    font-family: 'BeastImpacted';
+    src: local('Defused'),
+    url('./fonts/Beast.ttf') format('truetype');
+    font-weight: normal;
+}

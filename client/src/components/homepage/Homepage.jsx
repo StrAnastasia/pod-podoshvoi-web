@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import imgPost1 from '../../images/concert3.jpg'
 import imgPost2 from '../../images/concert.jpg'
 import imgPost3 from '../../images/concert2.jpg'
@@ -6,7 +6,12 @@ import './homePageModule.scss'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import News from '../news/News'
+
+import { useDispatch } from 'react-redux'
+import { fetchAllNews } from "../../redux/AC/ac";
+
 
 
 export default function Homepage() {
@@ -18,7 +23,33 @@ export default function Homepage() {
     const [offsetYHeader, setOffsetYHeader] = useState(1)
 
 
+    const firstUpdate = useRef(true)
+
+    const newsarray = useSelector(store => store.news);
+
+
+    const dispatch = useDispatch()
+        const allnewsHandler = async () => {
+            if (firstUpdate.current) {
+                firstUpdate.current = false;
+              } else {
+                  dispatch(fetchAllNews()); //-- thunk
+          
+              }
+            
+          };
+
+        //   allnewsHandler()
+    useEffect(() => {
+        allnewsHandler()
+        // window.addEventListener('DOMContentLoaded', allnewsHandler);
+        // return () => window.removeEventListener('DOMContentLoaded', allnewsHandler);
+    }, [])
+
+
+
     const handleScrollPost = () => {
+        
         setOffsetYPost(window.pageYOffset * 0.004);
     }
 
@@ -49,9 +80,7 @@ export default function Homepage() {
 
 
 
-
-
-    const newsarray = useSelector(store => store.news);
+      
     //console.log('newsarray', newsarray);
 
 

@@ -27,10 +27,10 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path='/homepage'>
+        <Route exact path='/'>
           <Homepage />
         </Route>
-        <Route path='/allgigsmap'>
+        <Route exact path='/allgigsmap'>
         <LoadScript
         googleMapsApiKey={'AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk'}
         libraries = {["places"]}
@@ -38,19 +38,19 @@ function App() {
           <Map />
           </LoadScript>
         </Route>
-        <Route path='/band'>
+        <Route exact path='/band'>
           <Band />
         </Route>
-        <Route path='/gigs'>
+        <Route exact path='/gigs'>
           <Gig />
         </Route>
-        <Route path='/place'>
+        <Route exact path='/place'>
           <Place />
         </Route>
-        <Route path='/profile'>
+        <Route exact path='/profile'>
           <Profile />
         </Route>
-        <Route path='/game'>
+        <Route exact path='/game'>
           <Game />
         </Route>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { usePopper } from "react-popper";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import './dropdown.scss'
 
 function Dropdown(props) {
   const [visible, setVisibility] = useState(false);
@@ -34,9 +35,9 @@ function Dropdown(props) {
 
   function handleDocumentClick(event) {
     if (
-      referenceRef.current.contains(event.target) 
+      referenceRef.current.contains(event.target)
     ) {
-      return ;
+      return;
     } else if (event.target.name) {
       window.location.assign('//localhost:8080/auth/logout')
     } else if (popperRef.current.contains(event.target)) {
@@ -49,35 +50,38 @@ function Dropdown(props) {
   }
 
   return (
-    <React.Fragment>
-      <button
+    <div style={{ backgroundColor: 'black' }}>
+
+      <div
         ref={referenceRef}
-        class="prof-button"
+
         onClick={handleDropdownClick}
       >
         {name}
-      </button>
+      </div>
       <div ref={popperRef} style={styles.popper} {...attributes.popper}>
-        <DropdownContainer style={styles.offset} visible={visible}>
-          <a
-               
-            name='gay'    
-            style={{ marginLeft: 20 }}
-                aria-current="page"
-                href="http://localhost:8080/auth/logout"
-              >
-                logout
-              </a>
-          <DropdownItem> 
-            <Link to="/profile">
-profile
-            </Link>
+        <DropdownContainer  className='dropDownContainer' visible={visible}>
+
+          <DropdownItem>
+            <Link style={{textDecoration: 'none', color: 'black', }} to="/profile">
+             
+               профиль
             
-           </DropdownItem>
-        
+            </Link>
+
+          </DropdownItem>
+
+          <a
+            name='gay'
+            style={{ marginLeft: 20, textDecoration: 'none', color: 'black',}}
+            aria-current="page"
+            href="http://localhost:8080/auth/logout" >
+            выйти
+  </a>
+
         </DropdownContainer>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
