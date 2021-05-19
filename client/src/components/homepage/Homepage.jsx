@@ -67,11 +67,7 @@ export default function Homepage() {
 
 
             <div className='banner' style={{ opacity: offsetYHeader }}>
-<<<<<<< HEAD
-                POD PODOSHVOI 
-=======
                 POD PODOSHVOI
->>>>>>> db4367a9dcd17f67d34f341c9f718055a41b4fb9
             </div>
 <div className="nullDiv" ></div>
         </div>
