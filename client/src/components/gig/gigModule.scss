@@ -1,0 +1,55 @@
+.gig-img{
+    width: 30vw;
+    height: auto;
+    
+
+}
+
+.gig-card {
+    margin-right: 1%;
+    background-color: rgb(0, 0, 0);
+    margin-top: 3%;
+    width: 61vw;
+    border-radius: 8px;
+    border-style: solid;
+    padding: 10px;
+    border-width: 2px;
+    border-color: rgb(26, 26, 26);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.gig-card-title{
+    font-family: 'OpenType';
+  color: rgb(206, 198, 79);
+  font-size: 4vh;
+  text-align: center;
+}
+
+.cards-conteiner{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.card-data{
+    color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0 ;
+}
+
+.card-adress {
+
+    text-decoration: none;
+    color: white;
+    text-align: center;
+  }
+
+.card-lineup {
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
