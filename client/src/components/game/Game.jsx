@@ -46,7 +46,7 @@ export default function Game() {
   const charstyle = { 'z-index': '1', 'width': `${pixelsize * 30}px`, 'height': `${pixelsize * 30}px`, 'position': 'absolute' }
   //перерисовать картинку из 16 в 30
   const characterspritesheet = { 'position': 'absolute', 'backgroundImage': `url(${spriteState})`, 'backgroundSize': '100%', 'width': `${pixelsize * 30}px`, 'height': `77px`, 'top': `${fromTop}px`, 'left': `${fromLeft}px` }
-  const bubble2style = { 'backgroundSize': '100%', 'backgroundImage': `url(${bubble2})`, visibility: `${vis}`, 'position': 'absolute', 'width': `${pixelsize * 60}px`, 'height': `${pixelsize * 50}px`, 'top': `${fromTop + 80}px`, 'left': `${fromLeft}px`, 'fontSize': '12px' }
+  const bubble2style = { 'backgroundSize': '100%', 'backgroundImage': `url(${bubble2})`, visibility: `${vis}`, 'position': 'absolute', 'width': `${pixelsize * 60}px`, 'height': `${pixelsize * 50}px`, 'top': `${fromTop + 80}px`, 'left': `${fromLeft-30}px`, 'fontSize': '12px' }
 
   const crowdstyle = { 'position': 'absolute', 'width': `${pixelsize * 118}px`, 'height': `${pixelsize * 66}px`, 'top': `${backgroundcrowdplacetop}px`, 'left': `${backgroundcrowdplaceleft}px`, 'backgroundImage': `url(${mirmorestate})`, 'backgroundSize': '100%' }
   const bubble1style = { 'z-index': '2', 'backgroundSize': '100%', visibility: `${vissneg}`, 'backgroundImage': `url(${bubble1})`, 'position': 'absolute', 'width': `${pixelsize * 60}px`, 'height': `${pixelsize * 36}px`, 'top': `${backgroundcrowdplacetop - 70}px`, 'left': `${backgroundcrowdplaceleft + 90}px`, 'fontSize': '12px' }
@@ -88,13 +88,13 @@ export default function Game() {
     }
   }
   const [moneyvis, setMoneyvis] = useState('hidden')
-  const moneystyle = { 'visibility': `${moneyvis}`, 'z-index': '3', 'backgroundSize': '100%', 'backgroundImage': `url(${bubble5})`, 'position': 'absolute', 'width': `${pixelsize * 150}px`, 'height': `${pixelsize * 108}px`, 'top': `40vh`, 'left': `40vw` }
+  const moneystyle = { 'visibility': `${moneyvis}`, 'z-index': '3', 'backgroundSize': '100%', 'backgroundImage': `url(${bubble5})`, 'position': 'absolute', 'width': `${pixelsize * 150}px`, 'height': `${pixelsize * 108}px`, 'top': `30vh`, 'left': `43vw` }
   function moneyfunc() {
     if (moneyvis === '') {
       setMoneyvis('hidden')
       setSprite(Pers1)
       setmirmorestate(mirmore)
-      setvissneg('hidden')
+      setvissneg(' ')
     } else {
       setMoneyvis('')
       setVismay('hidden')
@@ -106,7 +106,7 @@ export default function Game() {
   }
 
   const [modalvis, setmodalvis] = useState('hidden')
-  const modalstyle = { 'visibility': `${modalvis}`, 'z-index': '3', 'backgroundSize': '100%', 'backgroundImage': `url(${bubble5})`, 'position': 'absolute', 'width': `${pixelsize * 150}px`, 'height': `${pixelsize * 108}px`, 'top': `40vh`, 'left': `40vw` }
+  const modalstyle = { 'visibility': `${modalvis}`, 'z-index': '3', 'backgroundSize': '100%', 'backgroundImage': `url(${bubble5})`, 'position': 'absolute', 'width': `${pixelsize * 150}px`, 'height': `${pixelsize * 108}px`, 'top': `30vh`, 'left': `43vw` }
 
   const walkHandler = (e) => {
     switch (e.keyCode) {
@@ -198,7 +198,7 @@ export default function Game() {
     setmodalvis('hidden')
     setSprite(Pers1)
     setmirmorestate(mirmore)
-    setvissneg(' ')
+    setvissneg('')
     setMentstate(- 100)
   }
 
@@ -242,7 +242,7 @@ export default function Game() {
 
 
         <div style={moneystyle}>
-          <div style={{ position: 'absolute', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'top': `90px`, 'left': `52px`, fontSize: '20px' }}>
+          <div style={{ position: 'absolute', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'top': `98px`, 'left': `52px`, fontSize: '20px' }}>
             5469 3800 7079 4051
           </div>
           <div style={{ position: 'absolute', 'top': `155px`, 'left': `200px`, width: '80px', height: '40px', backgroundImage: `url(${buttonpng})`, backgroundSize: '100%' }} onClick={moneyfunc}><div style={{ position: 'absolute', 'top': `5px`, 'left': `10px` }}>закрыть</div></div>
@@ -262,21 +262,21 @@ export default function Game() {
               </div>
               <div style={maystyle}></div>
               <div style={bubble2style}>
-                <div style={{ 'z-index': '2', 'position': 'absolute', top: '2.2vh', left: '2.5vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)' }}>
+                <div style={{ 'z-index': '2', 'position': 'absolute', top: '1.8vh', left: '2vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)' }}>
                   <div onClick={moneyfunc}  > > бросить
                   <div>музыкантам</div>
                     <div onClick={moneyfunc}>монетку</div>
                   </div>
                   <div onClick={mayvisible}>> подпеть</div>
                 </div>
-                <div style={{ 'z-index': '3', "position": 'absolute', visibility: `${visili}`, fontSize: '10px', top: '12vh', left: '-1.5vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'backgroundImage': `url(${bubble4})`, 'backgroundSize': '100%', height: '50px', width: '150px' }}>
-                  <div style={{ "position": 'absolute', top: '2.4vh', left: '3.8vw', }}>
+                <div style={{ 'z-index': '3', "position": 'absolute', visibility: `${visili}`, fontSize: '10px', top: '10vh', left: '-1.5vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'backgroundImage': `url(${bubble4})`, 'backgroundSize': '100%', height: '50px', width: '150px' }}>
+                  <div style={{ "position": 'absolute', top: '2vh', left: '3.1vw', }}>
                     <div>или лучше...</div>
                     {/* <div>лучше...</div> */}
                   </div>
                 </div>
-                <div onClick={pivkofunc} style={{ 'z-index': '4', 'position': 'absolute', visibility: `${vispivo}`, top: '17.3vh', left: '0vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'backgroundImage': `url(${bubble2})`, 'backgroundSize': '100%', 'width': `${pixelsize * 60}px`, 'height': `${pixelsize * 50}px` }}>
-                  <div style={{ position: 'absolute', top: '3.3vh', left: '1.7vw', }}> > выпить c
+                <div onClick={pivkofunc} style={{ 'z-index': '4', 'position': 'absolute', visibility: `${vispivo}`, top: '14vh', left: '0vw', 'fontWeight': 'bolder', 'fontFamily': 'var(--bs-font-sans-serif)', 'backgroundImage': `url(${bubble2})`, 'backgroundSize': '100%', 'width': `${pixelsize * 60}px`, 'height': `${pixelsize * 50}px` }}>
+                  <div style={{ position: 'absolute', top: '2.5vh', left: '1.5vw', }}> > выпить c
                     <div>музыкантами</div>
                     <div>пенного</div>
                   </div>

@@ -16,9 +16,6 @@ export default function Homepage() {
 
  
 
-const scrollToBottom = () => {
-    scroll.scrollTo(600); 
-};
 
 
   
@@ -30,7 +27,7 @@ const scrollToBottom = () => {
 
   useEffect(() => {
     allnewsHandler()
-    scrollToBottom()
+    
   }, [])
 
     const [offsetYPost, setOffsetYPost] = useState(0);

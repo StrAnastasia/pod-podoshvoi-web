@@ -5,9 +5,16 @@ import hederLogo from "../../images/pngegg.png";
 import profile from "../../images/pofile.png";
 import { Link } from "react-router-dom";
 import Dropdown from "../dropdown/Dropdown";
+import { animateScroll as scroll } from "react-scroll";
 
 export default function Header() {
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
+
+  const scrollToBottom = () => {
+    scroll.scrollTo(600); 
+  
+};
+
 
   useEffect(() => {
     axios.get("/auth/current-session").then(({ data }) => {
@@ -37,6 +44,7 @@ export default function Header() {
                 className="textHeader"
                 aria-current="page"
                 to="/"
+                onClick={scrollToBottom}
               >
                 новости
           </Link>
