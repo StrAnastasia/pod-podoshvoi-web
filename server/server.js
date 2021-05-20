@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const mongoose = require("mongoose");
 const logger = require("morgan");
+const toleranceUser = require('../server/middlewares/checkUserforNews')
 
 var cors = require("cors");
 require("dotenv").config();
@@ -18,7 +19,6 @@ const passport = require("./middlewares/passport");
 
 const app = express();
 app.use(cors());
-
 app.use(logger("dev"));
 app.use(helmet());
 app.use(hpp());
@@ -43,6 +43,7 @@ app.use(limiter);
 app.use(passport.initialize());
 
 const authRoutes = require("./routes/auth");
+const User = require('../server/db/models/User-model')
 const News = require("./db/models/News-model");
 const Band = require("./db/models/Band-model");
 const Gig = require("./db/models/Gig-model");
