@@ -5,6 +5,7 @@ import "firebase/firestore";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import ChatMessage from "../ChatMessage/ChatMessage";
+import axios from "axios";
 
 export default function Chat() {
   if (!firebase.apps.length) {
@@ -24,6 +25,13 @@ export default function Chat() {
   const scrollToBottom = () => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
+  const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
+
+  useEffect(() => {
+    axios.get("/auth/current-session").then(({ data }) => {
+      setAuth(data);
+    });
+  }, []);
 
   // getting the message and sorting them by time of creation
   const [formValue, setFormValue] = useState("");
@@ -33,6 +41,7 @@ export default function Chat() {
   const [messages] = useCollectionData(query, { idField: "id" });
   const sendMessage = async (e) => {
     e.preventDefault();
+    console.log(formValue);
     await messagesRef.add({
       body: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -48,7 +57,10 @@ export default function Chat() {
         {/* we will loop over the message and return a
         ChatMessage component for each message */}
         {messages &&
-          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+          messages.map((msg) => {
+            console.log(msg);
+            return <ChatMessage key={msg.id} message={msg} />;
+          })}
         <span ref={dummy}></span>
       </div>
 

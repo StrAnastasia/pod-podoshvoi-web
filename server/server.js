@@ -89,10 +89,6 @@ app.get("/gigs", async (req, res) => {
   try {
     const gigs = await Gig.find();
 
-    const newAdress = encodeURI(
-      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.name}&inputtype=textquery&fields=geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
-    );
-    const data = await axios.get(newAdress);
     res.json(gigs); //фетч в ас в редухе
     return;
   } catch (err) {
@@ -105,6 +101,10 @@ app.get("/place/:id", async (req, res) => {
   try {
     const barchik = req.params.id.replace(/_/g, " ");
     const theplace = await Place.findOne({ name: barchik });
+    const newAdress = encodeURI(
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.name}&inputtype=textquery&fields=geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
+    );
+    const data = await axios.get(newAdress);
     res.json(data.data.candidates[0].geometry); //фетч в ас в редухе
     return;
   } catch (err) {
