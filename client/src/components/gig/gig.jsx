@@ -40,6 +40,8 @@ export default function Gig(props) {
           src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFwsh8v8RW0GuXexKljW22Hak3vM2uQtY&q=${gig?.adress}`}
         ></iframe>
         <div className="cards-conteiner">
+        <Link to={`/`} style={{display: 'flex', justifyContent: 'flex-end', 'textDecoration': 'none'}}> <span >✖️</span></Link>
+
           <div className="d-flex  align-items-center flex-column">
             <h1 className="gig-card-title">{gig?.name}</h1>
           </div>

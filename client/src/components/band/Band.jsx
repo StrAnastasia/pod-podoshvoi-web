@@ -19,6 +19,8 @@ export default function Band() {
       <div className='homePage' >
         <div className='band-post' style={{ 'color': 'white', 'background-color': 'black' }} >
           <div className="profileBackground" />
+          <Link to={`/`} style={{display: 'flex', justifyContent: 'flex-end', 'textDecoration': 'none'}}> <span >✖️</span></Link>
+         
 
 
           {band?.image ? <img alt='post' src={band?.image} className="homePage-post-img" /> : null}

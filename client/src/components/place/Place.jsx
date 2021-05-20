@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
 import map from '../../images/map.jpg'
 
 
@@ -28,6 +29,7 @@ export default function Place() {
         <div className='cards-conteiner'>
 
 
+      <Link to={`/`} style={{display: 'flex', justifyContent: 'flex-end', 'textDecoration': 'none'}}> <span >✖️</span></Link>
           
 
 
