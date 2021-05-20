@@ -105,7 +105,7 @@ app.get("/place/:id", async (req, res) => {
       `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.name}&inputtype=textquery&fields=geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
     );
     const data = await axios.get(newAdress);
-    res.json(data.data.candidates[0].geometry); //фетч в ас в редухе
+    res.json(theplace); //фетч в ас в редухе
     return;
   } catch (err) {
     console.log("---->>", err);

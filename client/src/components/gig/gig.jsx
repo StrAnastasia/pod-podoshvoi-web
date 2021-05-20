@@ -32,8 +32,8 @@ export default function Gig(props) {
         {/* {gig?.image ? <img alt='post' src={gig?.image} className="homePage-post-img" /> : <img alt='post' src={map} className="gig-img" />} */}
 
         <iframe
-          width="600"
-          height="450"
+          width="1100vw"
+          height="500vh"
           style={{ border: 0 }}
           loading="lazy"
           allowfullscreen

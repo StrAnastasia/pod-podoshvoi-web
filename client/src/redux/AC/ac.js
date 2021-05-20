@@ -35,10 +35,9 @@ const getgigFunc = (info) => async (dispatch, getState) => {
 
 const getthePlace = (payload) => { return { type: GET_PLACE, payload: payload } }
 const getplaceFunc = (place) => async (dispatch, getState) => {
-  const newplace = place.replace(' ', "_")
-  console.log(newplace, 'for fetch');
+  console.log(place, 'for fetch');
 
-  const response = await fetch(`http://localhost:8080/place/${newplace}`)
+  const response = await fetch(`http://localhost:8080/place/${place}`)
   const thePlace = await response.json()
   console.log(thePlace);
   dispatch(getthePlace(thePlace))
