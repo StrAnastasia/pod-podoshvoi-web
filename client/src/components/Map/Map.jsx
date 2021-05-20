@@ -100,21 +100,25 @@ export default function Map() {
 
       <div>
         {markers.length ? (
-          markers.map((el, indx) => {
+          <div className='prokrutka'> 
+
+         { markers.map((el, indx) => {
             const newStr = JSON.stringify(el);
             return (
               <SelectMarkers
-                key={el._id}
-                indx={indx + 1}
-                adress={el.adress}
-                value={newStr}
-                num={el._id}
-                name={el.name}
-                date={el.date}
-                selectHandler={selectHandler}
+              key={el._id}
+              indx={indx + 1}
+              adress={el.adress}
+              value={newStr}
+              num={el._id}
+              name={el.name}
+              date={el.date}
+              selectHandler={selectHandler}
               />
-            );
-          })
+              );
+            }) }
+
+            </div>
         ) : (
           <SelectMarkers
             value={"as"}

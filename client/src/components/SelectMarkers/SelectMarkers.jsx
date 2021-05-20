@@ -28,7 +28,7 @@ export default function SelectMarkers({
     <>
       <div className="select-post">
         <button
-          style={{ marginLeft: 50, width: 300 }}
+          style={{ width: '19vw' }}
           className="btn btn-dark"
           onClick={() => selectHandler(location)}
         >

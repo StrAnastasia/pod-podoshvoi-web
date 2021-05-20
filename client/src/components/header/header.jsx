@@ -28,39 +28,55 @@ export default function Header() {
         </div>
 
         <div className="centerDiv">
-          <Link
+
+          {auth ? (
+            <>
+
+              <Link
+                style={{ marginRight: 20 }}
+                className="textHeader"
+                aria-current="page"
+                to="/"
+              >
+                новости
+          </Link>
+              <Link
+                style={{ marginRight: 20 }}
+                className="textHeader"
+                aria-current="page"
+                to="/chat"
+              >
+                чатик
+          </Link>
+              <Link
+                style={{ marginRight: 20 }}
+                className="textHeader"
+                aria-current="page"
+                to="/allgigsmap"
+              >
+                концерты
+          </Link>
+              <Link
+                style={{ marginRight: 20 }}
+                className="textHeader"
+                aria-current="page"
+                to="/game"
+              >
+                игруля
+          </Link>
+            </>
+
+          ) : (<Link
             style={{ marginRight: 20 }}
             className="textHeader"
             aria-current="page"
             to="/"
           >
             новости
-          </Link>
-          <Link
-            style={{ marginRight: 20 }}
-            className="textHeader"
-            aria-current="page"
-            to="/chat"
-          >
-            чатик
-          </Link>
-          <Link
-            style={{ marginRight: 20 }}
-            className="textHeader"
-            aria-current="page"
-            to="/allgigsmap"
-          >
-            концерты
-          </Link>
-          <Link
-            style={{ marginRight: 20 }}
-            className="textHeader"
-            aria-current="page"
-            to="/game"
-          >
-            игруля
-          </Link>
-          <div style={{ color: "white" }}>|</div>
+          </Link>)}
+
+
+          < div style={{ color: "white" }}>|</div>
 
           <img className="logoProfile" src={profile} />
           {auth ? (
@@ -79,7 +95,7 @@ export default function Header() {
             <>
               <a
                 className="textHeader"
-                style={{ marginLeft: 20 }}
+                style={{}}
                 aria-current="page"
                 href="http://localhost:8080/auth/login"
               >
