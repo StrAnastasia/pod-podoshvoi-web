@@ -5,7 +5,7 @@ import map from '../../images/map.jpg'
 
 export default function Place() {
   const place = useSelector(state => state.place)
-
+ console.log(place?.adress);
   return (
 
 
@@ -16,7 +16,14 @@ export default function Place() {
       <div className='gig-card'  >
 
 
-        {place?.image ? <img alt='post' src={place?.image} className="homePage-post-img" /> : <img alt='post' src={map} className="gig-img"/>}
+      <iframe
+          width="1100vw"
+          height="500vh"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowfullscreen
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFwsh8v8RW0GuXexKljW22Hak3vM2uQtY&q=${place?.adress}`}
+        ></iframe>
         
         <div className='cards-conteiner'>
 
