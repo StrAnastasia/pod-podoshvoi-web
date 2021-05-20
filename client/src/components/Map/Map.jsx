@@ -26,10 +26,9 @@ export default function Map() {
     mapRef.current.setZoom(14);
   }, []);
   const selectHandler = (e) => {
-    const newStr = JSON.parse(e);
-    console.log(newStr);
-    panTo(newStr.location);
-    setSelected(newStr);
+    console.log(e);
+    panTo(e);
+    setSelected(e);
   };
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -81,8 +80,8 @@ export default function Map() {
           {selected ? (
             <InfoWindow
               position={{
-                lat: selected.location.lat,
-                lng: selected.location.lng,
+                lat: selected.lat,
+                lng: selected.lng,
               }}
               onCloseClick={() => {
                 setSelected(null);

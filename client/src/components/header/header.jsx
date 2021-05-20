@@ -40,6 +40,14 @@ export default function Header() {
             style={{ marginRight: 20 }}
             className="textHeader"
             aria-current="page"
+            to="/chat"
+          >
+            чатик
+          </Link>
+          <Link
+            style={{ marginRight: 20 }}
+            className="textHeader"
+            aria-current="page"
             to="/allgigsmap"
           >
             концерты
