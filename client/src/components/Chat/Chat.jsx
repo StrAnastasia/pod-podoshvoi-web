@@ -41,21 +41,28 @@ export default function Chat() {
   const [messages] = useCollectionData(query, { idField: "id" });
   const sendMessage = async (e) => {
     e.preventDefault();
-    // console.log(formValue);
+    console.log("allo");
     await messagesRef.add({
       body: formValue,
+      user: auth.nickname,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
-    // resetting form value and scrolling to bottom
     setFormValue("");
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        "justify-content": "center",
+        marginTop: "3vh",
+        color: "white",
+      }}
+    >
+      <div className="profileBackground" />
       <div>
-        {/* we will loop over the message and return a
-        ChatMessage component for each message */}
         {messages &&
           messages.map((msg) => {
             // console.log(msg);
@@ -65,13 +72,22 @@ export default function Chat() {
       </div>
 
       {/* Form to type and submit messages */}
-      <form onSubmit={sendMessage}>
+      <form
+        onSubmit={sendMessage}
+        style={{
+          marginTop: "3vh",
+          display: "flex",
+          flexDirection: "row",
+          width: "30vw",
+        }}
+      >
         <input
+          className="form-control"
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Say something"
         />
-        <button type="submit" disabled={!formValue}>
+        <button className="btn btn-dark" type="submit" disabled={!formValue}>
           send
         </button>
       </form>
