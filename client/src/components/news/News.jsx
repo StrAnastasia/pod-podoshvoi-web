@@ -14,13 +14,13 @@ export default function News({ offsetYPost }) {
     dispatch(getinfoFunc(info))
   }
 
-  console.log('news', news);
+  // console.log('news', news);
 
   return (
     <>
       {news ? news.map(el =>
 
-        {console.log(`/band/${el?.tags[0]}`);
+        {  /*console.log(`/band/${el?.tags[0]}`);*/
         return <div className='homePage-post' style={{ opacity: offsetYPost }} >
           <div>
             {el?.image ? <img alt='post' src={el?.image} className="homePage-post-img" /> : null}

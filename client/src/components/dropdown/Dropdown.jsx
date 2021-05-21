@@ -46,6 +46,7 @@ function Dropdown(props) {
   function handleDropdownClick(event) {
     setVisibility(!visible);
   }
+  console.log({name});
 
   return (
     <div style={{ backgroundColor: "black" }}>

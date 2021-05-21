@@ -64,11 +64,11 @@ app.get("/news", async (req, res) => {
   }
 });
 
-app.get("/bands/:id", async (req, res) => {
+app.get("/bands/:id", toleranceUser, async (req, res) => {
   try {
     const gruppa = req.params.id.replace("_", " ");
     const theband = await Band.findOne({ bandName: gruppa });
-    console.log(theband, "from app server");
+    // console.log(theband, "from app server");
     res.json(theband); //фетч в ас в редухе
     return;
   } catch (err) {

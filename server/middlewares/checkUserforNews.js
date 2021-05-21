@@ -1,19 +1,21 @@
 // const User = require('../server/db/models/User-model')
 
-function toleranceUser(req, res, next) {
+const toleranceUser =  (req, res, next) => {
+  console.log(req.session.user);
   if (req.session.user_id) 
+
   {
-    
+  
     User.findById(req.session.user_id, function(user) {
       if (user) {
         req.currentUser = user;
         next();
       } else {
-        res.redirect('http://localhost:3000/auth/login');
+        res.sendStatus(400);
       }
     });
   } else {
-    res.redirect('http://localhost:3000/auth/login');
+    res.sendStatus(400);
   }
 }
 
@@ -22,3 +24,4 @@ module.exports = toleranceUser;
 // app.get('/documents.:format?', loadUser, function(req, res) {
 //   // ...
 // }); допимать в ручке
+

@@ -7,6 +7,7 @@ import {
 } from "../types/types";
 
 import dotenv from "dotenv";
+import { useHistory } from "react-router";
 dotenv.config();
 
 const getnewsFunc = (payload) => {
@@ -15,7 +16,10 @@ const getnewsFunc = (payload) => {
 const fetchAllNews = () => async (dispatch, getState) => {
   console.log("fetchAllInfa");
   const response = await fetch("http://localhost:8080/news");
+  // const 
   const thenews = await response.json();
+
+  // if (the )  
   console.log(thenews);
   dispatch(getnewsFunc(thenews));
 };
@@ -23,11 +27,17 @@ const fetchAllNews = () => async (dispatch, getState) => {
 const gettheBand = (payload) => {
   return { type: GET_BAND, payload: payload };
 };
+
 const getinfoFunc = (info) => async (dispatch, getState) => {
   const response = await fetch(`http://localhost:8080/bands/${info}`);
   const theband = await response.json();
-  console.log(theband);
-  dispatch(gettheBand(theband));
+  if (theband.status == 400) {
+    window.location.assign('http://localhost:3000/')
+  } else {
+    dispatch(gettheBand(theband));
+  }
+  // console.log(theband);
+  
 };
 
 const gettheGig = (payload) => {
