@@ -5,10 +5,12 @@ const hpp = require("hpp");
 const csurf = require("csurf");
 const rateLimit = require("express-rate-limit");
 const dotenv = require("dotenv");
+const PORT = process.env.PORT
 const path = require("path");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const toleranceUser = require('../server/middlewares/checkUserforNews')
+
 
 var cors = require("cors");
 require("dotenv").config();
@@ -49,7 +51,6 @@ const Band = require("./db/models/Band-model");
 const Gig = require("./db/models/Gig-model");
 const Place = require("./db/models/Place-models");
 const { default: axios } = require("axios");
-const User = require("./db/models/User-model");
 
 app.use("/auth", authRoutes);
 
