@@ -7,7 +7,7 @@ import { getinfoFunc, getplaceFunc } from "../../redux/AC/ac";
 
 export default function Gig(props) {
   const gig = useSelector((state) => state.gigs);
-  console.log("gigggggggg", gig);
+  // console.log("gigggggggg", gig);
 
   const dispatch = useDispatch();
 
@@ -19,9 +19,7 @@ export default function Gig(props) {
   const place = useSelector((state) => state.place);
 
   const findplaceHandler = (e) => {
-    console.log(e.target);
-    let place = e.target.dataset.value;
-    console.log(place);
+    const place = e.target.dataset.value;
     dispatch(getplaceFunc(place));
   };
 
@@ -32,8 +30,8 @@ export default function Gig(props) {
         {/* {gig?.image ? <img alt='post' src={gig?.image} className="homePage-post-img" /> : <img alt='post' src={map} className="gig-img" />} */}
 
         <iframe
-          width="600"
-          height="450"
+          width="1100vw"
+          height="500vh"
           style={{ border: 0 }}
           loading="lazy"
           allowfullscreen

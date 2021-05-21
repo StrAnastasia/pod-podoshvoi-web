@@ -48,6 +48,7 @@ const Band = require("./db/models/Band-model");
 const Gig = require("./db/models/Gig-model");
 const Place = require("./db/models/Place-models");
 const { default: axios } = require("axios");
+const User = require("./db/models/User-model");
 
 app.use("/auth", authRoutes);
 
@@ -96,7 +97,15 @@ app.get("/gigs", async (req, res) => {
     res.json({ loh: "loh" });
   }
 });
-
+app.get("/favgroup/:id/:name", async (req, res) => {
+  const currUser = User.find({ name: req.params.id });
+  if (currUser.usersBands.length) {
+    currUser.usersBands.push(req.params.name);
+  } else {
+    currUser.usersBands = [req.params.name];
+  }
+  currUser.save();
+});
 app.get("/place/:id", async (req, res) => {
   try {
     const barchik = req.params.id.replace(/_/g, " ");
@@ -105,7 +114,12 @@ app.get("/place/:id", async (req, res) => {
       `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.name}&inputtype=textquery&fields=geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
     );
     const data = await axios.get(newAdress);
-    res.json(data.data.candidates[0].geometry); //фетч в ас в редухе
+    const newplace = {
+      ...theplace._doc,
+      location: data.data.candidates[0].geometry.location,
+    };
+    // console.log(newplace);
+    res.json(newplace); //фетч в ас в редухе
     return;
   } catch (err) {
     console.log("---->>", err);

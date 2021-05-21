@@ -3,6 +3,7 @@ import { LoadScript } from "@react-google-maps/api";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Band from "./components/band/Band";
 import Chat from "./components/Chat/Chat";
+import ErrorBoundary from "./components/errorComponent/ErrorComponent";
 import Game from "./components/game/Game";
 import Gig from "./components/gig/gig";
 import Header from "./components/header/header";
@@ -43,7 +44,9 @@ function App() {
           <Profile />
         </Route>
         <Route exact path="/game">
-          <Game />
+          <ErrorBoundary>
+            <Game />
+          </ErrorBoundary>
         </Route>
       </Switch>
     </Router>

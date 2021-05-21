@@ -41,7 +41,7 @@ export default function Chat() {
   const [messages] = useCollectionData(query, { idField: "id" });
   const sendMessage = async (e) => {
     e.preventDefault();
-    console.log(formValue);
+    // console.log(formValue);
     await messagesRef.add({
       body: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -58,7 +58,7 @@ export default function Chat() {
         ChatMessage component for each message */}
         {messages &&
           messages.map((msg) => {
-            console.log(msg);
+            // console.log(msg);
             return <ChatMessage key={msg.id} message={msg} />;
           })}
         <span ref={dummy}></span>
