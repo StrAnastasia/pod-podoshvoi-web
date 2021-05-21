@@ -99,7 +99,7 @@ export default function Band() {
               }}
             >
               <div className="band-post-date">{band?.years}</div>
-              <button onClick={favHandler}>add to fav</button>
+              {/* <button onClick={favHandler}>add to fav</button> */}
             </div>
           </div>
         </div>

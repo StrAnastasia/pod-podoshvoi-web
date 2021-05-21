@@ -29,7 +29,7 @@ export default function Game() {
 
   const [spriteState, setSprite] = useState(Pers1);
   const [mirmorestate, setmirmorestate] = useState(mirmore);
-  const [mentstate, setMentstate] = useState("-100");
+  const [mentstate, setMentstate] = useState("-1000");
 
   const [vis, setVis] = useState("hidden");
   const [vismay, setVismay] = useState("hidden");
@@ -203,6 +203,7 @@ export default function Game() {
   };
 
   const walkHandler = (e) => {
+    e.stopPropagation()
     switch (e.keyCode) {
       case 65:
       case 37:
@@ -267,10 +268,10 @@ export default function Game() {
     setLeft((prev) => prev - 2);
   }
   if (fromTop < 78) {
-    setFromTop((prev) => prev - 2);
+    setFromTop((prev) => prev + 2);
   }
   if (fromTop > 360) {
-    setFromTop((prev) => prev + 2);
+    setFromTop((prev) => prev - 2);
   }
 
   function pivkofunc() {
