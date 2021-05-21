@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 export default function Band() {
   const band = useSelector((state) => state.band);
-  console.log(band);
+  // console.log(band);
   const dispatch = useDispatch();
 
   const [auth, setAuth] = useState(null);
@@ -14,7 +14,7 @@ export default function Band() {
   useEffect(() => {
     axios.get("/auth/current-session").then(({ data }) => {
       setAuth(data);
-      console.log(data);
+      // console.log(data);
     });
   }, []);
   const favHandler = (e) => {
@@ -23,9 +23,9 @@ export default function Band() {
   const gigHandler = (e) => {
     let giginfo = e.target.dataset.value;
     dispatch(getgigFunc(giginfo));
-    console.log(giginfo);
+    // console.log(giginfo);
   };
-  console.log(band);
+  // console.log(band);
   return (
     <>
       <div className="homePage">

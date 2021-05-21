@@ -26,9 +26,10 @@ export default function Map() {
     mapRef.current.setZoom(14);
   }, []);
   const selectHandler = (e) => {
-    console.log(e);
-    panTo(e);
-    setSelected(e);
+    const newStr = JSON.parse(e);
+    console.log(newStr);
+    panTo(newStr.location);
+    setSelected(newStr);
   };
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -45,6 +46,7 @@ export default function Map() {
       setMarkers(data);
     });
   }, []);
+  console.log(selected);
   return (
     <div className="mapContainer">
       <div>
@@ -71,7 +73,7 @@ export default function Map() {
                   scaledSize: new window.google.maps.Size(30, 30),
                 }}
                 onClick={() => {
-                  console.log(el);
+                  // console.log(el);
                   setSelected(el);
                 }}
               />
@@ -79,10 +81,7 @@ export default function Map() {
           })}
           {selected ? (
             <InfoWindow
-              position={{
-                lat: selected.lat,
-                lng: selected.lng,
-              }}
+              position={selected.location}
               onCloseClick={() => {
                 setSelected(null);
               }}
@@ -100,21 +99,23 @@ export default function Map() {
 
       <div>
         {markers.length ? (
-          markers.map((el, indx) => {
-            const newStr = JSON.stringify(el);
-            return (
-              <SelectMarkers
-                key={el._id}
-                indx={indx + 1}
-                adress={el.adress}
-                value={newStr}
-                num={el._id}
-                name={el.name}
-                date={el.date}
-                selectHandler={selectHandler}
-              />
-            );
-          })
+          <div className="prokrutka">
+            {markers.map((el, indx) => {
+              const newStr = JSON.stringify(el);
+              return (
+                <SelectMarkers
+                  key={el._id}
+                  indx={indx + 1}
+                  adress={el.adress}
+                  value={newStr}
+                  num={el._id}
+                  name={el.name}
+                  date={el.date}
+                  selectHandler={selectHandler}
+                />
+              );
+            })}
+          </div>
         ) : (
           <SelectMarkers
             value={"as"}
