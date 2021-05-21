@@ -7,12 +7,17 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import News from '../news/News'
-
+import { Link, animateScroll as scroll } from "react-scroll";
 import { fetchAllNews } from "../../redux/AC/ac";
 
 
 
 export default function Homepage() {
+
+ 
+
+
+
   
   const dispatch = useDispatch();
 
@@ -22,6 +27,7 @@ export default function Homepage() {
 
   useEffect(() => {
     allnewsHandler()
+    
   }, [])
 
     const [offsetYPost, setOffsetYPost] = useState(0);

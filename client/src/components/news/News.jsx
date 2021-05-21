@@ -1,40 +1,53 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
-import {getinfoFunc} from '../../redux/AC/ac'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { getinfoFunc } from "../../redux/AC/ac";
 
 export default function News({ offsetYPost }) {
-  const news = useSelector(state => state.news)
+  const news = useSelector((state) => state.news);
 
   // console.log('newsarrayfrom news', news);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const findHandler = (e) => {
-    let info = e.target.dataset.value
-    dispatch(getinfoFunc(info))
-  }
+    let info = e.target.dataset.value;
+    dispatch(getinfoFunc(info));
+  };
 
   // console.log('news', news);
 
   return (
     <>
-      {news ? news.map(el =>
+      {news
+        ? news.map((el) => {
+            return (
+              <div className="homePage-post" style={{ opacity: offsetYPost }}>
+                <div>
+                  {el?.image ? (
+                    <img
+                      alt="post"
+                      src={el?.image}
+                      className="homePage-post-img"
+                    />
+                  ) : null}
+                </div>
+                <div className="d-flex  align-items-center flex-column">
+                  <Link
+                    onClick={findHandler}
+                    data-value={el?.tags[0]}
+                    to={`/band/${el?.tags[0]}`}
+                    className="homePage-post-title"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {el?.title}
+                  </Link>
+                </div>
 
-        {  /*console.log(`/band/${el?.tags[0]}`);*/
-        return <div className='homePage-post' style={{ opacity: offsetYPost }} >
-          <div>
-            {el?.image ? <img alt='post' src={el?.image} className="homePage-post-img" /> : null}
-          </div>
-          <div className="d-flex  align-items-center flex-column">
-            <Link onClick={findHandler} data-value={el?.tags[0]} to={`/band/${el?.tags[0]}`} className='homePage-post-title' style={{textDecoration: "none"}}>
-            {el?.title}
-            </Link>
-
-          </div>
-
-          <p className="homePage-post-text">{el?.text}</p>
-        </div>}
-      )
+                <p className="homePage-post-text">{el?.text}</p>
+              </div>
+            );
+          })
         : null}
-    </>)
+    </>
+  );
 }

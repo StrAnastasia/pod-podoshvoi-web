@@ -7,37 +7,27 @@ import {
 } from "../types/types";
 
 import dotenv from "dotenv";
-import { useHistory } from "react-router";
 dotenv.config();
 
 const getnewsFunc = (payload) => {
   return { type: GET_NEWS, payload: payload };
 };
 const fetchAllNews = () => async (dispatch, getState) => {
-  console.log("fetchAllInfa");
+  // console.log("fetchAllInfa");
   const response = await fetch("http://localhost:8080/news");
-  // const 
   const thenews = await response.json();
-
-  // if (the )  
-  console.log(thenews);
+  // console.log(thenews);
   dispatch(getnewsFunc(thenews));
 };
 
 const gettheBand = (payload) => {
   return { type: GET_BAND, payload: payload };
 };
-
 const getinfoFunc = (info) => async (dispatch, getState) => {
   const response = await fetch(`http://localhost:8080/bands/${info}`);
   const theband = await response.json();
-  if (theband.status == 400) {
-    window.location.assign('http://localhost:3000/')
-  } else {
-    dispatch(gettheBand(theband));
-  }
   // console.log(theband);
-  
+  dispatch(gettheBand(theband));
 };
 
 const gettheGig = (payload) => {
@@ -45,7 +35,6 @@ const gettheGig = (payload) => {
 };
 
 const getgigFunc = (info) => async (dispatch, getState) => {
-  console.log(info);
   if (info.split("").includes(" ")) {
     const newinfo = info.replace(" ", "_");
     const response = await fetch(`http://localhost:8080/gigs/${newinfo}`);
@@ -59,10 +48,8 @@ const getthePlace = (payload) => {
   return { type: GET_PLACE, payload: payload };
 };
 const getplaceFunc = (place) => async (dispatch, getState) => {
-  const newplace = place.replace(" ", "_");
-  console.log(newplace, "for fetch");
-
-  const response = await fetch(`http://localhost:8080/place/${newplace}`);
+  // console.log(place, "for fetch");
+  const response = await fetch(`http://localhost:8080/place/${place}`);
   const thePlace = await response.json();
   console.log(thePlace);
   dispatch(getthePlace(thePlace));

@@ -49,13 +49,13 @@ const Band = require("./db/models/Band-model");
 const Gig = require("./db/models/Gig-model");
 const Place = require("./db/models/Place-models");
 const { default: axios } = require("axios");
+const User = require("./db/models/User-model");
 
 app.use("/auth", authRoutes);
 
 app.get("/news", async (req, res) => {
   try {
     const allnews = await News.find();
-    console.log(allnews);
     res.json(allnews); //фетч в ас в редухе
     return;
   } catch (err) {
@@ -68,7 +68,6 @@ app.get("/bands/:id", toleranceUser, async (req, res) => {
   try {
     const gruppa = req.params.id.replace("_", " ");
     const theband = await Band.findOne({ bandName: gruppa });
-    // console.log(theband, "from app server");
     res.json(theband); //фетч в ас в редухе
     return;
   } catch (err) {
@@ -79,7 +78,6 @@ app.get("/bands/:id", toleranceUser, async (req, res) => {
 
 app.get("/gigs/:id", async (req, res) => {
   try {
-    console.log(req.params);
     const konts = req.params.id.replace(/_/g, " ");
     const thegig = await Gig.findOne({ name: konts });
     res.json(thegig); //фетч в ас в редухе
@@ -92,7 +90,7 @@ app.get("/gigs/:id", async (req, res) => {
 app.get("/gigs", async (req, res) => {
   try {
     const gigs = await Gig.find();
-    console.log(gigs, "from app server");
+
     res.json(gigs); //фетч в ас в редухе
     return;
   } catch (err) {
@@ -100,22 +98,29 @@ app.get("/gigs", async (req, res) => {
     res.json({ loh: "loh" });
   }
 });
-
+app.get("/favgroup/:id/:name", async (req, res) => {
+  const currUser = User.find({ name: req.params.id });
+  if (currUser.usersBands.length) {
+    currUser.usersBands.push(req.params.name);
+  } else {
+    currUser.usersBands = [req.params.name];
+  }
+  currUser.save();
+});
 app.get("/place/:id", async (req, res) => {
   try {
     const barchik = req.params.id.replace(/_/g, " ");
     const theplace = await Place.findOne({ name: barchik });
-    console.log(theplace.adress);
-    const newAdress = theplace.adress.replace(/ /g, "%20");
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.adress}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
-      )
-      .then((data) => console.log(data))
-      .catch((err) => {
-        console.log(err);
-      });
-    res.json(theplace); //фетч в ас в редухе
+    const newAdress = encodeURI(
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${theplace.name}&inputtype=textquery&fields=geometry&key=AIzaSyCtPbYjq1VPSnTlsfvfNs3pexwlEAYjDmk`
+    );
+    const data = await axios.get(newAdress);
+    const newplace = {
+      ...theplace._doc,
+      location: data.data.candidates[0].geometry.location,
+    };
+    // console.log(newplace);
+    res.json(newplace); //фетч в ас в редухе
     return;
   } catch (err) {
     console.log("---->>", err);
