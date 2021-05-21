@@ -20,9 +20,9 @@ async function main() {
 
   await bandFabric()
   // await genreFabric()
-  // await gigFabric()
-  // await newsFabric()
-  // await placeFabrics()
+  await gigFabric()
+  await newsFabric()
+  await placeFabrics()
   console.log('vi molodets');
   await connection.close();
 }

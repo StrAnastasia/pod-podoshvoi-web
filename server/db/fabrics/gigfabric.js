@@ -6,6 +6,14 @@ async function gigFabric() {
       name: 'Гулять!',
       bands: ['Шейм', 'ЛОГОС', 'Red Hize'],
       adress: "Бункер 47",
+      location:{lat: 55.79897169520551, lng:37.53109252753651,},
+      date: "2021-06-23, 18:30"
+    },
+    {
+      name: 'не тот гиг',
+      bands: ['Шейм', 'Red Hize'],
+      adress: "Бункер 47",
+      location:{lat: 55.79897169520551, lng:37.53109252753651,},
       date: "2021-05-23, 18:30"
     },
     {
@@ -16,7 +24,7 @@ async function gigFabric() {
       date: "2020-08-31, 19:30"
     },
     {
-      name: 'Плохой человек?',
+      name: 'Плохой человек',
       bands: ['Миролюбивое Море', 'ДЕНАТУРАЦИЯ БЕЛКА'],
       adress: "Бар Punk Fiction",
       location:{lat: 55.72269536456216,lng:37.67365586878619},
@@ -51,7 +59,7 @@ async function gigFabric() {
       date: '2021-04-05, 19:00'
     },
     {
-      name: 'комбинатор',
+      name: 'комбинатрт',
       bands: ['Пар Культуры', "и пр."],
       adress: `Торговый центр "Clever"`,
       location:{lat: 55.75437256786336, lng:37.75253315637098},

@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const mongoose = require("mongoose");
 const logger = require("morgan");
+const PORT = process.env.PORT
 
 var cors = require("cors");
 require("dotenv").config();
@@ -113,7 +114,7 @@ app.get("/place/:id", async (req, res) => {
   }
 });
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("I'm listening!");
   console.log(process.env.DB_ATLAS_URL);
   mongoose.connect(process.env.DB_ATLAS_URL, {

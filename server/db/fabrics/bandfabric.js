@@ -52,7 +52,7 @@ async function bandFabric() {
       years: "2018-2021",
       media: { vk: 'https://vk.com/mirolubivoemore', insta: 'https://www.instagram.com/mirolubivoemore/' },
       musicLinks: { vk: 'https://vk.com/artist/mirolyubivoemore', yandex: 'https://music.yandex.ru/artist/9320396', spot: 'https://open.spotify.com/artist/0GKO37O60jw63rD7nweBZn' },
-      gigs: ['Плохой человек?', 'МИРОЛЮБИВОЕ МОРЕ Х НЕ ШУМИ', 'Бык на крыше х Миролюбивое Море'],
+      gigs: ['Плохой человек', 'МИРОЛЮБИВОЕ МОРЕ Х НЕ ШУМИ', 'Бык на крыше х Миролюбивое Море'],
       news: [],
       reviews: []
     },
@@ -63,7 +63,7 @@ async function bandFabric() {
       years: "2014-2021",
       media: { vk: 'https://vk.com/wearedop', insta: 'https://www.instagram.com/we_are_dop/' },
       musicLinks: { vk: 'https://vk.com/artist/denaturatsiabelka', yandex: 'https://music.yandex.ru/artist/7644408', spot: 'https://open.spotify.com/artist/44Uf96zyeh1g7Huw95vXqv' },
-      gigs: ['Плохой человек?'],
+      gigs: ['Плохой человек'],
       news: [],
       reviews: []
     },
@@ -96,7 +96,7 @@ async function bandFabric() {
       years: "2020-2021",
       media: { vk: 'https://vk.com/antonarziani', insta: 'https://www.instagram.com/aivenfo/' },
       musicLinks: { vk: 'https://vk.com/artist/arziani', yandex: 'https://music.yandex.ru/artist/10494328', spot: 'https://open.spotify.com/artist/50WdmUuX9TNMrBZGn2Z1jB' },
-      gigs: ['Плохой человек?', 'МИРОЛЮБИВОЕ МОРЕ Х НЕ ШУМИ', 'Бык на крыше х Миролюбивое Море'],
+      gigs: ['МИРОЛЮБИВОЕ МОРЕ Х НЕ ШУМИ', 'Бык на крыше х Миролюбивое Море'],
       news: [],
       reviews: []
     },
@@ -113,18 +113,7 @@ async function bandFabric() {
     }
   ]
 
-  const redhize = {
-    bandName: "RED HIZE",
-    genre: ["Альтернативный рок"],
-    discription: `Red Hize была основана Сергеем Винокуровым, Александром Мироновым, Романом Цветковым в 2007 году в Москве. Чуть позже к проекту присоединился и Роман Морозов. Первые треки музыкантов по жанру были ближе к готик-металу и были лихи и отважны, как вся гаражная музыка тех лет. В конце 2008 года по обоюдному согласию музыканты взяли перерыв по личным причинам. Группа воссоединилась в 2018 году. После долгих поисков вокала к Red Hize присоединилась Маша Морр. Название группы предложил Александр Миронов (ака Самурай). Легенда гласит, что он забыл название аниме, которое смотрел в то время, и исказил его до "Red Hize". Другие музыканты сочли получившийся каламбур забавным и, обнаружив в нём отсылки к "красной мгле" и испанскому "хизэ", решили остановить свой выбор на нём. 11 марта 2021 года, после внёсшей в планы музыкантов неразбериху пандемии, вышел первый сингл ребят, который они ласково называют "Cоль".`,
-    years: "2007-2008, 2018-2021",
-    media: { vk: 'https://vk.com/redhize', insta: 'https://www.instagram.com/redhize/' },
-    musicLinks: { vk: 'https://vk.com/artist/redhize', yandex: 'https://music.yandex.ru/artist/11042251', spot: 'https://open.spotify.com/artist/70NAgyIMXaceQIR9wfp8aM' },
-    gigs: ['Гулять!'],
-    news: [],
-    reviews: []
-
-  }
+  
   
   const delbandso = await Band.deleteMany()
   const bandso = await Band.create(bands)
