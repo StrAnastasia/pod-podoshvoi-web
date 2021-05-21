@@ -6,8 +6,7 @@ export default function ChatMessage(props) {
     <div
       style={{
         display: "flex",
-        backgroundColor: "white",
-        "justify-content": "center",
+        color: "white",
       }}
     >
       <div>
@@ -21,9 +20,23 @@ export default function ChatMessage(props) {
           }
         />
       </div>
-      <div>
-        <p>{user}</p>
-        <p>{body}</p>
+      <div
+        style={{
+          border: "1px solid",
+          borderColor: "orange",
+          borderRadius: 8,
+        }}
+      >
+        <p
+          style={{
+            marginLeft: "0.5vw",
+            marginRight: "0.5vw",
+            fontFamily: `"Russo One", sans-serif`,
+          }}
+        >
+          {user}
+        </p>
+        <div>{body}</div>
       </div>
     </div>
   );
