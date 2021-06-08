@@ -14,7 +14,9 @@ const getnewsFunc = (payload) => {
 };
 const fetchAllNews = () => async (dispatch, getState) => {
   // console.log("fetchAllInfa");
-  const response = await fetch("http://localhost:8080/news");
+  const response = await fetch(
+    "http://murmuring-bastion-15989.herokuapp.com/news"
+  );
   const thenews = await response.json();
   // console.log(thenews);
   dispatch(getnewsFunc(thenews));
@@ -24,7 +26,9 @@ const gettheBand = (payload) => {
   return { type: GET_BAND, payload: payload };
 };
 const getinfoFunc = (info) => async (dispatch, getState) => {
-  const response = await fetch(`http://localhost:8080/bands/${info}`);
+  const response = await fetch(
+    `http://murmuring-bastion-15989.herokuapp.com/bands/${info}`
+  );
   const theband = await response.json();
   // console.log(theband);
   dispatch(gettheBand(theband));
@@ -37,9 +41,13 @@ const gettheGig = (payload) => {
 const getgigFunc = (info) => async (dispatch, getState) => {
   if (info.split("").includes(" ")) {
     const newinfo = info.replace(" ", "_");
-    const response = await fetch(`http://localhost:8080/gigs/${newinfo}`);
+    const response = await fetch(
+      `http://murmuring-bastion-15989.herokuapp.com/gigs/${newinfo}`
+    );
   }
-  const response = await fetch(`http://localhost:8080/gigs/${info}`);
+  const response = await fetch(
+    `http://murmuring-bastion-15989.herokuapp.com/gigs/${info}`
+  );
   const theGig = await response.json();
   dispatch(gettheGig(theGig));
 };
@@ -49,7 +57,9 @@ const getthePlace = (payload) => {
 };
 const getplaceFunc = (place) => async (dispatch, getState) => {
   // console.log(place, "for fetch");
-  const response = await fetch(`http://localhost:8080/place/${place}`);
+  const response = await fetch(
+    `http://murmuring-bastion-15989.herokuapp.com/place/${place}`
+  );
   const thePlace = await response.json();
   console.log(thePlace);
   dispatch(getthePlace(thePlace));

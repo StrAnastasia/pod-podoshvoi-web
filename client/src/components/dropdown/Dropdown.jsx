@@ -37,7 +37,9 @@ function Dropdown(props) {
     if (referenceRef.current.contains(event.target)) {
       return;
     } else if (event.target.name) {
-      window.location.assign("//localhost:8080/auth/logout");
+      window.location.assign(
+        "//murmuring-bastion-15989.herokuapp.com/auth/logout"
+      );
     } else if (popperRef.current.contains(event.target)) {
       return;
     }
@@ -67,7 +69,7 @@ function Dropdown(props) {
             name="gay"
             style={{ marginLeft: 20, textDecoration: "none", color: "black" }}
             aria-current="page"
-            href="http://localhost:8080/auth/logout"
+            href="http://murmuring-bastion-15989.herokuapp.com/auth/logout"
           >
             выйти
           </a>

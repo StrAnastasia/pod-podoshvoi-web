@@ -5,7 +5,6 @@ import "firebase/firestore";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import ChatMessage from "../ChatMessage/ChatMessage";
-import axios from "axios";
 
 export default function Chat() {
   if (!firebase.apps.length) {
@@ -27,12 +26,6 @@ export default function Chat() {
   };
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
 
-  useEffect(() => {
-    axios.get("/auth/current-session").then(({ data }) => {
-      setAuth(data);
-    });
-  }, []);
-
   // getting the message and sorting them by time of creation
   const [formValue, setFormValue] = useState("");
   const messagesRef = firestore.collection("messages");
@@ -44,7 +37,6 @@ export default function Chat() {
     console.log("allo");
     await messagesRef.add({
       body: formValue,
-      user: auth.nickname,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -75,13 +67,7 @@ export default function Chat() {
           {messages &&
             messages.map((msg) => {
               // console.log(msg);
-              return (
-                <ChatMessage
-                  nickname={auth.nickname}
-                  key={msg.id}
-                  message={msg}
-                />
-              );
+              return <ChatMessage key={msg.id} message={msg} />;
             })}
           <span ref={dummy}></span>
         </div>
@@ -100,10 +86,10 @@ export default function Chat() {
             className="form-control"
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
-            placeholder="Пукни в чат"
+            placeholder="Дай о себе знать"
           />
           <button className="btn btn-dark" type="submit" disabled={!formValue}>
-            Пукнуть
+            Написать
           </button>
         </form>
       </div>

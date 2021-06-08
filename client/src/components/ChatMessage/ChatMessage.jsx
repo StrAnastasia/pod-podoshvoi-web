@@ -1,20 +1,7 @@
 export default function ChatMessage(props) {
-  const { nickname } = props;
-  const { user, body, photoURL, createdAt } = props.message;
+  const { body } = props.message;
   //   console.log(user);
   let myStyle = {};
-  if (nickname === user) {
-    console.log("ya v ife");
-    myStyle = {
-      color: "white",
-      ["allign-self"]: "flex-end",
-    };
-  } else {
-    myStyle = {
-      display: "flex",
-      color: "white",
-    };
-  }
 
   return (
     <div style={myStyle}>
@@ -30,7 +17,7 @@ export default function ChatMessage(props) {
             fontFamily: `"Russo One", sans-serif`,
           }}
         >
-          {user}:
+          Аноним:
         </p>
 
         <p

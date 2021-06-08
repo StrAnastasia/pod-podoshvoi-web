@@ -42,9 +42,11 @@ export default function Map() {
     lng: 37.58536453295382,
   };
   useEffect(() => {
-    axios.get("//localhost:8080/gigs").then(({ data }) => {
-      setMarkers(data);
-    });
+    axios
+      .get("//murmuring-bastion-15989.herokuapp.com/gigs")
+      .then(({ data }) => {
+        setMarkers(data);
+      });
   }, []);
   console.log(selected);
   return (

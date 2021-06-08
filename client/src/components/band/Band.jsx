@@ -12,13 +12,17 @@ export default function Band() {
   const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    axios.get("/auth/current-session").then(({ data }) => {
-      setAuth(data);
-      // console.log(data);
-    });
+    axios
+      .get(
+        "/https://murmuring-bastion-15989.herokuapp.com/auth/current-session"
+      )
+      .then(({ data }) => {
+        setAuth(data);
+        // console.log(data);
+      });
   }, []);
   const favHandler = (e) => {
-    // axios.get(`//localhost:8080/favgroup/${adress}/`);
+    // axios.get(`//murmuring-bastion-15989.herokuapp.com/favgroup/${adress}/`);
   };
   const gigHandler = (e) => {
     let giginfo = e.target.dataset.value;
