@@ -5,7 +5,6 @@ import "firebase/firestore";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import ChatMessage from "../ChatMessage/ChatMessage";
-import axios from "axios";
 
 export default function Chat() {
   if (!firebase.apps.length) {
@@ -27,16 +26,10 @@ export default function Chat() {
   };
   const [auth, setAuth] = useState(null); // IF WE CHANGE THIS INITIAL VALUE WE GET DIFFERENT PAGES
 
-  useEffect(() => {
-    axios.get("/auth/current-session").then(({ data }) => {
-      setAuth(data);
-    });
-  }, []);
-
   // getting the message and sorting them by time of creation
   const [formValue, setFormValue] = useState("");
   const messagesRef = firestore.collection("messages");
-  const query = messagesRef.orderBy("createdAt", "asc").limitToLast(25);
+  const query = messagesRef.orderBy("createdAt", "asc").limitToLast(10);
 
   const [messages] = useCollectionData(query, { idField: "id" });
   const sendMessage = async (e) => {
@@ -44,7 +37,6 @@ export default function Chat() {
     console.log("allo");
     await messagesRef.add({
       body: formValue,
-      user: auth.nickname,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -56,41 +48,51 @@ export default function Chat() {
       style={{
         display: "flex",
         flexDirection: "column",
-        "justify-content": "center",
-        marginTop: "3vh",
-        color: "white",
+        alignItems: "center",
+        width: "100%",
       }}
     >
-      <div className="profileBackground" />
-      <div>
-        {messages &&
-          messages.map((msg) => {
-            // console.log(msg);
-            return <ChatMessage key={msg.id} message={msg} />;
-          })}
-        <span ref={dummy}></span>
-      </div>
-
-      {/* Form to type and submit messages */}
-      <form
-        onSubmit={sendMessage}
+      <div
         style={{
           marginTop: "3vh",
-          display: "flex",
-          flexDirection: "row",
-          width: "30vw",
+          color: "white",
+          border: "1px solid",
+          borderColor: "orange",
+          borderRadius: 8,
+          width: "40vw",
         }}
       >
-        <input
-          className="form-control"
-          value={formValue}
-          onChange={(e) => setFormValue(e.target.value)}
-          placeholder="Say something"
-        />
-        <button className="btn btn-dark" type="submit" disabled={!formValue}>
-          send
-        </button>
-      </form>
+        <div className="profileBackground" />
+        <div>
+          {messages &&
+            messages.map((msg) => {
+              // console.log(msg);
+              return <ChatMessage key={msg.id} message={msg} />;
+            })}
+          <span ref={dummy}></span>
+        </div>
+
+        {/* Form to type and submit messages */}
+        <form
+          onSubmit={sendMessage}
+          style={{
+            marginTop: "3vh",
+            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+          }}
+        >
+          <input
+            className="form-control"
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder="Дай о себе знать"
+          />
+          <button className="btn btn-dark" type="submit" disabled={!formValue}>
+            Написать
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
