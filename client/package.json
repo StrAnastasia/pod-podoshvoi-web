@@ -22,7 +22,7 @@
     "react-popper": "^2.2.5",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "4.0.1",
     "react-scroll": "^1.8.2",
     "react-scroll-parallax": "^2.4.0",
     "redux": "^4.1.0",
